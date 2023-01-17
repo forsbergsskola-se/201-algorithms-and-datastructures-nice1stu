@@ -22,11 +22,15 @@ public class TurboMaths
         return oddNumbers;
     }
     
-    public static IEnumerable<int> GetOddNumbers(int iterator)
+    public static IEnumerable<int> GetOddNumbers(int maxNumber)
     {
-        for (int i = 0; i < iterator; i++)
+        for (int i = 0; i < maxNumber; i++)
         {
-            yield return i;
+            if (i % 2 == 1)
+            {
+                yield return i;
+            }
+
         }
     }
 }

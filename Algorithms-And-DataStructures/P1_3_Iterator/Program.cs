@@ -33,3 +33,8 @@ foreach (var item in NumbersOdd)
 {
     Console.WriteLine(item);
 }
+
+foreach (var item in TurboMaths.GetOddNumbers(12))
+{
+    Console.WriteLine(item);
+}
