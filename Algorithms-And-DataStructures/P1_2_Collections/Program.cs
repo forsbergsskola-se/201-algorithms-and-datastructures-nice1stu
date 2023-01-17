@@ -6,30 +6,30 @@
 
 using System.Collections;
 
-List<int> Numbers = new List<int>();
-Numbers.Add(137);
-Numbers.Add(1000);
-Numbers.Add(-200);
+List<int> numbers = new List<int>();
+numbers.Add(137);
+numbers.Add(1000);
+numbers.Add(-200);
 
-ArrayList Forsbergs = new ArrayList();
-Forsbergs.Add(true);
-Forsbergs.Add("Forsbergs");
-Forsbergs.Add('a');
-Forsbergs.Add(1000);
-Forsbergs.Add(0.12f);
+ArrayList forsbergs = new ArrayList();
+forsbergs.Add(true);
+forsbergs.Add("Forsbergs");
+forsbergs.Add('a');
+forsbergs.Add(1000);
+forsbergs.Add(0.12f);
 
-foreach (var item in Numbers)
+foreach (var item in numbers)
 {
     Console.WriteLine(item);
 }
 
-IEnumerator enumerator = Forsbergs.GetEnumerator();
-foreach (var item in Forsbergs)
+IEnumerator enumerator = forsbergs.GetEnumerator();
+foreach (var item in forsbergs)
 {
     Console.WriteLine(item);
 }
 
-for (int i = 0; i < Forsbergs.Count; i++)
+for (int i = 0; i < forsbergs.Count; i++)
 {
-    Console.WriteLine(Forsbergs[i]);
+    Console.WriteLine(forsbergs[i]);
 }
