@@ -23,5 +23,5 @@ iterator.Add(5);
 IEnumerator enumerator = iterator.GetEnumerator();
 while (enumerator.MoveNext())
 {
-    Console.WriteLine(enumerator.Current);
+    Console.WriteLine(iterator.Sum());
 }
