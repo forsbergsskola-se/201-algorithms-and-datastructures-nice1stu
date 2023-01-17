@@ -2,14 +2,27 @@
 
 using System.Collections;
 
-public static class TurboMaths
+public class TurboMaths
 {
     public static void SayHello()
     {
         Console.WriteLine($"Hello, I'm {typeof(TurboMaths)}");
     }
 
-    static IEnumerable GetOddNumbers(int iterator)
+    public static List<int> GetOddNumbersList(int maxNumber)
+    {
+        List<int> oddNumbers = new List<int>();
+        for (int i = 0; i < maxNumber; i++)
+        {
+            if (i % 2 == 1)
+            {
+                oddNumbers.Add(i);
+            }
+        }
+        return oddNumbers;
+    }
+    
+    public static IEnumerable<int> GetOddNumbers(int iterator)
     {
         for (int i = 0; i < iterator; i++)
         {

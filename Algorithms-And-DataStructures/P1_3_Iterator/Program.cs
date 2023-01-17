@@ -12,6 +12,7 @@
 //Invoke GetOddNumbersList with 1_000_000_000 as an argument. Observe the result.
 
 using System.Collections;
+using TurboCollections;
 
 List<int> iterator = new List<int>();
 iterator.Add(1);
@@ -24,4 +25,11 @@ IEnumerator enumerator = iterator.GetEnumerator();
 while (enumerator.MoveNext())
 {
     Console.WriteLine(iterator.Sum());
+}
+
+List<int> NumbersOdd = TurboMaths.GetOddNumbersList(12);
+
+foreach (var item in NumbersOdd)
+{
+    Console.WriteLine(item);
 }
