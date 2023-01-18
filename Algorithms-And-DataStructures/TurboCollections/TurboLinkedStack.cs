@@ -33,20 +33,19 @@ public class TurboLinkedStack<T> : IEnumerable<T> {
         LastNode = null;
     }
 
-
-    public int Count {
-        get{
-            // Here, you need to do a while loop over all nodes
-            // Similar to the previous PrintAllNodes Function
-            // But instead of Printing Nodes, you just count how many Nodes you have visited
-            // Similar to this:
+    public int Count
+    {
+        get {
             int count = 0;
-            while(false/* remove false and replace with correct condition...*/){
+            var current = LastNode;
+            while (current != null) {
                 count++;
+                current = current.Previous;
             }
             return count;
         }
     }
+
 
     public IEnumerator<T> GetEnumerator() {
         // This one is a bonus and a bit more difficult.
