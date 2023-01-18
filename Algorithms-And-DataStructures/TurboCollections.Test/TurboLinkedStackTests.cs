@@ -49,6 +49,22 @@ public class TurboLinkedStackTests
                 Assert.AreEqual(13, result);
                 Assert.AreEqual(5, stack.Peek());
         }
+        
+        [Test]
+        public void ClearTest() {
+                // Arrange
+                var stack = new TurboLinkedStack<int>();
+                stack.Push(1);
+                stack.Push(3);
+                stack.Push(15);
+
+                // Act
+                stack.Clear();
+
+                // Assert
+                Assert.IsNull(stack.LastNode);
+        }
+
 
         
         

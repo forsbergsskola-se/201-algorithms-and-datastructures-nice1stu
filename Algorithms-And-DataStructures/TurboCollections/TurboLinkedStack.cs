@@ -29,12 +29,10 @@ public class TurboLinkedStack<T> : IEnumerable<T> {
         return last.Value;
     }
 
-
     public void Clear() {
-        // This one is incredibly easy. Just assign null to Field LastNode
-        // -- This is like pretending you never new that there is any last customer.
-        // -- by forgetting the latest customer, you forget them all.
+        LastNode = null;
     }
+
 
     public int Count {
         get{
