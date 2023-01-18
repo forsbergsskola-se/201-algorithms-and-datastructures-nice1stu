@@ -69,19 +69,22 @@ public class TurboLinkedStack<T> : IEnumerable<T> {
         public Node FirstNode;
 
         public bool MoveNext(){
-            throw new NotImplementedException();
             // if we don't have a current node, we start with the first node
             if(CurrentNode == null){
                 CurrentNode = FirstNode;
             } else {
                 // Assign the Current Node's Previous Node to be the Current Node.
+                CurrentNode = CurrentNode.Previous;
             }
             // Return, whether there is a CurrentNode. Else, we have reached the end of the Stack, there's no more Elements.
+            return CurrentNode != null;
         }
 
         public T Current {
             get{
-                throw new NotImplementedException();
+                if (CurrentNode == null)
+                    throw new InvalidOperationException("The enumerator is before the first element or after the last element of the collection.");
+                return CurrentNode.Value;
                 // Return the Current Node's Value.
             }
         }
@@ -91,6 +94,7 @@ public class TurboLinkedStack<T> : IEnumerable<T> {
 
         public void Reset() {
             // Look at Move. How can you make sure that this Enumerator starts over again?
+            CurrentNode = FirstNode;
         }
 
         public void Dispose()

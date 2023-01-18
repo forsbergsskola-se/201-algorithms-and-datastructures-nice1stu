@@ -73,5 +73,24 @@ public class TurboLinkedStackTests
                 
                 Assert.AreEqual(2, count);
         }
+        
+        [Test]
+        public void EnumeratorTest()
+        {
+                var stack = new TurboLinkedStack<int>();
+                stack.Push(1);
+                stack.Push(5);
+                stack.Push(13);
+
+                var enumerator = stack.GetEnumerator();
+                var result = new List<int>();
+                while (enumerator.MoveNext())
+                {
+                        result.Add(enumerator.Current);
+                }
+
+                Assert.AreEqual(new[] { 13, 5, 1 }, result.ToArray());
+        }
+
 
 }
