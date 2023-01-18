@@ -11,12 +11,12 @@ public class TurboLinkedQueueTests
     [Test]
     public void EnqueueTest()
     {
-        var stack = new TurboLinkedStack<int>();
+        var stack = new TurboLinkedQueue<int>();
                 
-        stack.Push(1);
-        stack.Push(5);
-        stack.Push(13);
+        stack.Enqueue(1);
+        stack.Enqueue(5);
+        stack.Enqueue(13);
                 
-        CollectionAssert.AreEqual(stack, new[]{13, 5, 1});
+        CollectionAssert.AreEqual(stack, new[]{1, 5, 13});
     }
 }
