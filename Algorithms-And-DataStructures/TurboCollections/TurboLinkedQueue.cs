@@ -1,16 +1,9 @@
 ﻿using System.Collections;
 
-namespace TurboCollections;
-
 public interface ITurboQueue<T> : IEnumerable<T>
 {
-    public class Node
-    {
-        public T Value;
-        public Node Previous;
-    }
     // returns the current amount of items contained in the stack.
-    //int Count;
+    int Count { get; }
     // adds one item to the back of the queue.
     void Enqueue(T item);
     // returns the item in the front of the queue without removing it.
@@ -21,44 +14,70 @@ public interface ITurboQueue<T> : IEnumerable<T>
     void Clear();
 }
 
-public class TurboLinkedQueue<T> : ITurboQueue<T> {
+public class TurboLinkedQueue<T> : ITurboQueue<T>
+{
     // This class is VERY similar to the TurboLinkedStack
-    class Node {
+    class Node
+    {
         public T Value;
         // But we store the Next Node for each Node instead.
         public Node Next;
-        public Node Previous { get; set; }
     }
     // Also, we store the first instead of the last Node. First Come, First Serve.
+    Node FirstNode;
 
-    public void Enqueue(T item)
+    public void Enqueue(T value)
     {
-        Node newNode = new Node { Value = item, Previous = FirstNode };
-        FirstNode = newNode;
+        Node newNode = new Node { Value = value };
+        if (FirstNode == null)
+        {
+            FirstNode = newNode;
+        } else
+        {
+            Node currentNode = FirstNode;
+            while (currentNode.Next != null)
+            {
+                currentNode = currentNode.Next;
+            }
+            currentNode.Next = newNode;
+        }
+        count++;
     }
 
     public T Peek()
     {
-        throw new NotImplementedException();
+        return FirstNode.Value;
     }
-
+    
     public T Dequeue()
     {
-        throw new NotImplementedException();
+        T value = FirstNode.Value;
+        FirstNode = FirstNode.Next;
+        count--;
+        return value;
     }
 
     public void Clear()
     {
-        throw new NotImplementedException();
+        FirstNode = null;
+        count = 0;
     }
 
-    Node FirstNode { get; set; }
+    private int count;
+    public int Count
+    {
+        get { return count; }
+    }
+    
     // Everything else is super similar to the TurboLinkedStack!
     public IEnumerator<T> GetEnumerator()
     {
-        throw new NotImplementedException();
+        Node currentNode = FirstNode;
+        while (currentNode != null) {
+            yield return currentNode.Value;
+            currentNode = currentNode.Next;
+        }
     }
-
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
