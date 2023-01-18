@@ -27,6 +27,8 @@ public class TurboLinkedStackTests
                 var result = stack.Peek();
 
                 Assert.AreEqual(13, result);
+                Assert.AreEqual(13, result);
+                Assert.AreEqual(13, result);
         }
         
         [Test]
