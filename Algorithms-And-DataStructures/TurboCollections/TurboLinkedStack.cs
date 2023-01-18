@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 
+namespace TurboCollections;
+
 public class TurboLinkedStack<T> : IEnumerable<T> {
     public class Node
     {
