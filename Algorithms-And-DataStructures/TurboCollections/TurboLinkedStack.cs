@@ -17,24 +17,18 @@ public class TurboLinkedStack<T> : IEnumerable<T> {
 
     public T Peek()
     {
-
         return LastNode.Value;
     }
 
     public T Pop()
     {
-        throw new NotImplementedException();
-        // 1. Save the Last Node locally so we can return the value later.
-        // 2. Now, assign the Last Node's Previous Node to be the Last Node.
-        // -- This effectively removes the previously Last Node of the Stack
-        // -- Imagine LastNode is customer 436
-        // -- -- who remembered that customer 435 was before him.
-        // -- We assign that before customer 435 to LastNode.
-        // -- -- 435 knows that 434 was before him.
-        // -- -- But he has no memory of customer 436.
-
-        // Now, return the Value of the Node that you cached in Step 1.
+        if(LastNode == null)
+            throw new InvalidOperationException("The stack is empty.");
+        var last = LastNode;
+        LastNode = last.Previous;
+        return last.Value;
     }
+
 
     public void Clear() {
         // This one is incredibly easy. Just assign null to Field LastNode
