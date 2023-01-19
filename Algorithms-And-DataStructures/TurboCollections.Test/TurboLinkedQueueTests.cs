@@ -3,12 +3,6 @@
 public class TurboLinkedQueueTests
 {
     [Test]
-    public void CountTest()
-    {
-
-    }
-
-    [Test]
     public void EnqueueTestcheckStoredValues()
     {
         var queue = new TurboLinkedQueue<int>();
@@ -51,5 +45,34 @@ public class TurboLinkedQueueTests
         queue.Dequeue();
         
         Assert.AreEqual(5, queue.Peek());
+    }
+
+    [Test]
+
+    public void ClearTest()
+    {
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
+        
+        queue.Clear();
+        
+        Assert.AreEqual(null, queue.Peek());
+    }
+
+    [Test]
+    public void CountTest()
+    {
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
+        
+        Assert.AreEqual(5, queue.Count);
     }
 }
