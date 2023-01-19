@@ -11,5 +11,24 @@ namespace TurboCollections;
 
 public class SpotifySongQueue
 {
+    static void Main()
+    {
+        var queue = new TurboLinkedQueue<string>();
 
+        while (true)
+        {
+            Console.WriteLine("What would you like to do? [s]kip or [a]dd?");
+            string userInput = Console.ReadLine();
+            if (userInput == "s")
+            {
+                
+            }
+            else if (userInput == "a")
+            {
+                Console.WriteLine("Enter the Song's Name");
+                string songName = Console.ReadLine();
+                queue.Enqueue(songName);
+            }
+        }
+    }
 }
