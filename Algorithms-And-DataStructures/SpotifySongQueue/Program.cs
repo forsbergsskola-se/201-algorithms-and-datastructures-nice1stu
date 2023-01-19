@@ -11,11 +11,12 @@ namespace TurboCollections;
 
 public class SpotifySongQueue
 {
-    static void Main(string[] args)
+    static void Main()
     {
-
-        public interface ITurboQueue<T> : IEnumerable<T>
-        {
+        
+    }
+    public interface ITurboQueue<T> : IEnumerable<T>
+    {
         // returns the current amount of items contained in the stack.
         int Count { get; }
 
@@ -30,9 +31,9 @@ public class SpotifySongQueue
 
         // removes all items from the queue.
         void Clear();
-        }
-
-        public class TurboLinkedQueue<T> : ITurboQueue<T>
+    }
+    
+    public class TurboLinkedQueue<T> : ITurboQueue<T>
         {
             // This class is VERY similar to the TurboLinkedStack
             class Node
@@ -57,7 +58,7 @@ public class SpotifySongQueue
                     Node currentNode = FirstNode;
                     while (currentNode.Next != null)
                     {
-                    currentNode = currentNode.Next;
+                        currentNode = currentNode.Next;
                     }
 
                     currentNode.Next = newNode;
@@ -108,6 +109,4 @@ public class SpotifySongQueue
                 return GetEnumerator();
             }
         }
-    }
-
 }
