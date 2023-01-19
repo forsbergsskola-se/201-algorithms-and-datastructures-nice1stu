@@ -6,107 +6,82 @@
 //[a]dd new song to the queue: The application asks for a Song Name and then adds it to the Queue.
 
 using System.Collections;
+using NUnit.Framework;
 
-namespace TurboCollections;
-
+namespace TurboCollections.Test;
 public class SpotifySongQueue
 {
-    static void Main()
+    [Test]
+    public void EnqueueTestcheckStoredValues()
     {
-        
-    }
-    public interface ITurboQueue<T> : IEnumerable<T>
-    {
-        // returns the current amount of items contained in the stack.
-        int Count { get; }
-
-        // adds one item to the back of the queue.
-        void Enqueue(T item);
-
-        // returns the item in the front of the queue without removing it.
-        T Peek();
-
-        // returns the item in the front of the queue and removes it at the same time.
-        T Dequeue();
-
-        // removes all items from the queue.
-        void Clear();
+        var queue = new TurboLinkedQueue<int>();
+                
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
+                
+        CollectionAssert.AreEqual(queue, new[]{100, 5, 13, 101, 54});
     }
     
-    public class TurboLinkedQueue<T> : ITurboQueue<T>
-        {
-            // This class is VERY similar to the TurboLinkedStack
-            class Node
-            {
-                public T Value;
-                // But we store the Next Node for each Node instead.
-                public Node Next;
-            }
+    [Test]
+    public void PeekTestReturn1stValue()
+    {
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
 
-            // Also, we store the first instead of the last Node. First Come, First Serve.
-            Node FirstNode;
+        var result = queue.Peek();
 
-            public void Enqueue(T value)
-            {
-                Node newNode = new Node { Value = value };
-                if (FirstNode == null)
-                {
-                    FirstNode = newNode;
-                }
-                else
-                {
-                    Node currentNode = FirstNode;
-                    while (currentNode.Next != null)
-                    {
-                        currentNode = currentNode.Next;
-                    }
+        Assert.AreEqual(100, result);
+        Assert.AreEqual(100, result);
+    }
+    
+    [Test]
+    public void DequeueTest()
+    {
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
 
-                    currentNode.Next = newNode;
-                }
+        queue.Dequeue();
+        
+        Assert.AreEqual(5, queue.Peek());
+    }
 
-                count++;
-            }
+    [Test]
 
-            public T Peek()
-            {
-                return FirstNode.Value;
-            }
+    public void ClearTest()
+    {
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
+        
+        queue.Clear();
+        
+        Assert.AreEqual(0, queue.Count);
+    }
 
-            public T Dequeue()
-            {
-                T value = FirstNode.Value;
-                FirstNode = FirstNode.Next;
-                count--;
-                return value;
-            }
-
-            public void Clear()
-            {
-                FirstNode = null;
-                count = 0;
-            }
-
-            private int count;
-
-            public int Count
-            {
-                get { return count; }
-            }
-
-            // Everything else is super similar to the TurboLinkedStack!
-            public IEnumerator<T> GetEnumerator()
-            {
-                Node currentNode = FirstNode;
-                while (currentNode != null)
-                {
-                    yield return currentNode.Value;
-                    currentNode = currentNode.Next;
-                }
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return GetEnumerator();
-            }
-        }
+    [Test]
+    public void CountTest()
+    {
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
+        
+        Assert.AreEqual(5, queue.Count);
+    }
 }
