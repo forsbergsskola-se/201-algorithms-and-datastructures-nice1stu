@@ -15,10 +15,20 @@ public class SpotifySongQueue
         {
             Console.WriteLine("What would you like to do? [s]kip or [a]dd?");
             string userInput = Console.ReadLine();
-            string songName = null;
+            string songName;
+            
             if (userInput == "s")
             {
-                if (songName != null) Console.WriteLine($"Now Playing: {songName}");
+                if (queue.Count > 0)
+                {
+                    songName = queue.Enqueue();
+                    Console.WriteLine($"Now Playing: {songName}");
+                }
+                else
+                {
+                    Console.WriteLine("There is no more songs in the Queue.");
+                }
+
             }
             else if (userInput == "a")
             {
