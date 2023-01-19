@@ -2,34 +2,36 @@
 
 namespace TurboCollections;
 
+
+public interface ITurboList<T> : IEnumerable<T>
+{
+    // returns the current amount of items contained in the list.
+    int Count { get; }
+    // adds one item to the end of the list.
+    void Add(T item);
+    // gets the item at the specified index. If the index is outside the correct range, an exception is thrown.
+    T Get(int index);
+    // replaces the item at the specified index. If the index is outside the correct range, an exception is thrown.
+    void Set(int index, T value);
+    // removes all items from the list.
+    void Clear();
+    // removes one item from the list. If the 4th item is removed, then the 5th item becomes the 4th, the 6th becomes the 5th and so on.
+    void RemoveAt(int index);
+    // --------------- optional ---------------
+    // returns true, if the given item can be found in the list, else false.
+    bool Contains(T item);
+    // returns the index of the given item if it is in the list, else -1.
+    int IndexOf(T item);
+    // removes the first instance of the specified item from the list, if it can be found. Works similar to RemoveAt.
+    void Remove(T item);
+    // adds multiple items ad the end of this list at once. Works similar to Add.
+    void AddRange(IEnumerable<T> items);
+    // --------------- important, but difficult ---------------
+    // gets the iterator for this collection. Used by IEnumerable<T>-Interface to support foreach.
+}
+
 public class ITurboList
 {
-    public interface ITurboList<T> : IEnumerable<T>
-    {
-        // returns the current amount of items contained in the list.
-        int Count { get; }
-        // adds one item to the end of the list.
-        void Add(T item);
-        // gets the item at the specified index. If the index is outside the correct range, an exception is thrown.
-        T Get(int index);
-        // replaces the item at the specified index. If the index is outside the correct range, an exception is thrown.
-        void Set(int index, T value);
-        // removes all items from the list.
-        void Clear();
-        // removes one item from the list. If the 4th item is removed, then the 5th item becomes the 4th, the 6th becomes the 5th and so on.
-        void RemoveAt(int index);
-        // --------------- optional ---------------
-        // returns true, if the given item can be found in the list, else false.
-        bool Contains(T item);
-        // returns the index of the given item if it is in the list, else -1.
-        int IndexOf(T item);
-        // removes the first instance of the specified item from the list, if it can be found. Works similar to RemoveAt.
-        void Remove(T item);
-        // adds multiple items ad the end of this list at once. Works similar to Add.
-        void AddRange(IEnumerable<T> items);
-        // --------------- important, but difficult ---------------
-        // gets the iterator for this collection. Used by IEnumerable<T>-Interface to support foreach.
-    }
     
     public class TurboLinkedList<T> : ITurboList<T>
     {
@@ -69,6 +71,7 @@ public class ITurboList
 
         public T Get(int index)
         {
+            throw new NotImplementedException();
             // run through the Nodes Node by Node until you reach the correct index
             // then return the value of that node
         }

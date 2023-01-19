@@ -3,7 +3,7 @@
 public interface ITurboQueue<T> : IEnumerable<T>
 {
     // returns the current amount of items contained in the stack.
-    int Count { get; }
+    //int Count { get; }
     // adds one item to the back of the queue.
     void Enqueue(T item);
     // returns the item in the front of the queue without removing it.
