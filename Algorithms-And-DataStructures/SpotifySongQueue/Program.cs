@@ -7,21 +7,21 @@
 
 public class SpotifySongQueue
 {
-    static void Main()
+    static void Main(string[] args)
     {
         var queue = new TurboLinkedQueue<string>();
 
         while (true)
         {
             Console.WriteLine("What would you like to do? [s]kip or [a]dd?");
-            string userInput = Console.ReadLine();
-            string songName;
             
+            string userInput = Console.ReadLine();
+
             if (userInput == "s")
             {
                 if (queue.Count > 0)
                 {
-                    songName = queue.Enqueue();
+                    string songName = queue.Dequeue();
                     Console.WriteLine($"Now Playing: {songName}");
                 }
                 else
@@ -33,7 +33,7 @@ public class SpotifySongQueue
             else if (userInput == "a")
             {
                 Console.WriteLine("Enter the Song's Name");
-                songName = Console.ReadLine();
+                string songName = Console.ReadLine();
                 queue.Enqueue(songName);
             }
         }

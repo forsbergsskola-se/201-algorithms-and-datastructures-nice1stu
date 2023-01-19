@@ -82,9 +82,4 @@ public class TurboLinkedQueue<T> : ITurboQueue<T>
     {
         return GetEnumerator();
     }
-
-    public string? Enqueue()
-    {
-        throw new NotImplementedException();
-    }
 }
