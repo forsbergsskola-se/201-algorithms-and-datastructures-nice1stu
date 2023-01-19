@@ -16,25 +16,31 @@ public class SpotifySongQueue
             Console.WriteLine("What would you like to do? [s]kip or [a]dd?");
             
             string userInput = Console.ReadLine();
-
-            if (userInput == "s")
+            if(userInput != "s" && userInput != "a")
             {
-                if (queue.Count > 0)
-                {
-                    string songName = queue.Dequeue();
-                    Console.WriteLine($"Now Playing: {songName}");
-                }
-                else
-                {
-                    Console.WriteLine("There is no more songs in the Queue.");
-                }
-
+                Console.WriteLine("Invalid input, please enter 's' to skip or 'a' to add a song.");
             }
-            else if (userInput == "a")
+            else
             {
-                Console.WriteLine("Enter the Song's Name");
-                string songName = Console.ReadLine();
-                queue.Enqueue(songName);
+                switch (userInput)
+                {
+                    case "s" when queue.Count > 0:
+                    {
+                        string songName = queue.Dequeue();
+                        Console.WriteLine($"Now Playing: {songName}");
+                        break;
+                    }
+                    case "s":
+                        Console.WriteLine("There is no more songs in the Queue.");
+                        break;
+                    case "a":
+                    {
+                        Console.WriteLine("Enter the Song's Name");
+                        string songName = Console.ReadLine();
+                        queue.Enqueue(songName);
+                        break;
+                    }
+                }
             }
         }
     }
