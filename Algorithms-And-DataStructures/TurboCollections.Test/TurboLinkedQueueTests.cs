@@ -60,7 +60,7 @@ public class TurboLinkedQueueTests
         
         queue.Clear();
         
-        Assert.AreEqual(null, queue.Peek());
+        Assert.AreEqual(0, queue.Count);
     }
 
     [Test]
