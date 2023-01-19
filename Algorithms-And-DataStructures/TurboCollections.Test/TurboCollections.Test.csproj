@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\SpotifySongQueue\SpotifySongQueue.csproj" />
       <ProjectReference Include="..\TurboCollections\TurboCollections.csproj" />
     </ItemGroup>
 
