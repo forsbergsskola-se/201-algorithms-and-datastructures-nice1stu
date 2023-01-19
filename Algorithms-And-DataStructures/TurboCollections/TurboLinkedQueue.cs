@@ -48,7 +48,7 @@ public class TurboLinkedQueue<T> : ITurboQueue<T>
     {
         return FirstNode.Value;
     }
-    
+
     public T Dequeue()
     {
         T value = FirstNode.Value;

@@ -9,32 +9,47 @@ public class TurboLinkedQueueTests
     }
 
     [Test]
-    public void EnqueueTest()
+    public void EnqueueTestcheckStoredValues()
     {
-        var stack = new TurboLinkedQueue<int>();
+        var queue = new TurboLinkedQueue<int>();
                 
-        stack.Enqueue(100);
-        stack.Enqueue(5);
-        stack.Enqueue(13);
-        stack.Enqueue(101);
-        stack.Enqueue(54);
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
                 
-        CollectionAssert.AreEqual(stack, new[]{100, 5, 13, 101, 54});
+        CollectionAssert.AreEqual(queue, new[]{100, 5, 13, 101, 54});
     }
     
     [Test]
     public void PeekTestReturn1stValue()
     {
-        var stack = new TurboLinkedQueue<int>();
-        stack.Enqueue(100);
-        stack.Enqueue(5);
-        stack.Enqueue(13);
-        stack.Enqueue(101);
-        stack.Enqueue(54);
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
 
-        var result = stack.Peek();
+        var result = queue.Peek();
 
         Assert.AreEqual(100, result);
         Assert.AreEqual(100, result);
+    }
+    
+    [Test]
+    public void DequeueTest()
+    {
+        var queue = new TurboLinkedQueue<int>();
+        queue.Enqueue(100);
+        queue.Enqueue(5);
+        queue.Enqueue(13);
+        queue.Enqueue(101);
+        queue.Enqueue(54);
+
+        queue.Dequeue();
+        
+        Assert.AreEqual(5, queue.Peek());
     }
 }
