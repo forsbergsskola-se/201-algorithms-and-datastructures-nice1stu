@@ -99,7 +99,8 @@ public class TurboLinkedListTests
         list.Add(69);
 
         Assert.AreEqual(4, list.IndexOf(69));
-        Assert.AreEqual(0, list.IndexOf(999));
+        Assert.AreEqual(0, list.IndexOf(999)); //Dammit, this is wrong, 0 is index 0
+        Assert.AreEqual(0, list.IndexOf(13));
     }
     
     public void TestRemove()

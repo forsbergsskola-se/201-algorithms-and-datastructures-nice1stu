@@ -143,7 +143,7 @@ public class ITurboList
                 currentNode = currentNode.Next;
             }
 
-            return 0;
+            return 0; //What do i return if value isn't in list. Strong error message doesn't work !
         }
 
         public void Remove(T item)
