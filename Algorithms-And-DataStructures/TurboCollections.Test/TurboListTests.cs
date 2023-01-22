@@ -88,5 +88,32 @@ public class TurboLinkedListTests
         Assert.IsTrue(list.Contains(69));
         Assert.IsFalse(list.Contains(999));
     }
+    
+    [Test]
+    public void TestIndexOf()
+    {
+        list.Add(13);
+        list.Add(5);
+        list.Add(100);
+        list.Add(101);
+        list.Add(69);
+
+        Assert.AreEqual(4, list.IndexOf(69));
+        Assert.AreEqual(0, list.IndexOf(999));
+    }
+    
+    public void TestRemove()
+    {
+        list.Add(13);
+        list.Add(5);
+        list.Add(100);
+        list.Add(101);
+        list.Add(69);
+
+        list.RemoveAt(2);
+
+        Assert.AreEqual(4, list.Count);
+        Assert.AreEqual(101, list.Get(2));
+    }
 
 }

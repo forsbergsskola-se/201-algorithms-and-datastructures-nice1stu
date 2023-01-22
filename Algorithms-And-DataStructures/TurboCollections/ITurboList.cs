@@ -132,7 +132,18 @@ public class ITurboList
 
         public int IndexOf(T item)
         {
-            throw new NotImplementedException();
+            Node currentNode = FirstNode;
+            for (int i = 0; i < count; i++)
+            {
+                if (currentNode.Value.Equals(item))
+                {
+                    return i;
+                }
+
+                currentNode = currentNode.Next;
+            }
+
+            return 0;
         }
 
         public void Remove(T item)
