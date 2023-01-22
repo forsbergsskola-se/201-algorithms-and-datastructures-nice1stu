@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1_3_Iterator", "P1_3_Itera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifySongQueue", "SpotifySongQueue\SpotifySongQueue.csproj", "{AC745024-1B51-4165-AB1B-6AA9BB56BA88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManager", "CustomerManager\CustomerManager.csproj", "{D4A20434-F3BB-4ED0-9C2B-8A74ADE0A1AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{AC745024-1B51-4165-AB1B-6AA9BB56BA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC745024-1B51-4165-AB1B-6AA9BB56BA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC745024-1B51-4165-AB1B-6AA9BB56BA88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4A20434-F3BB-4ED0-9C2B-8A74ADE0A1AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4A20434-F3BB-4ED0-9C2B-8A74ADE0A1AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4A20434-F3BB-4ED0-9C2B-8A74ADE0A1AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4A20434-F3BB-4ED0-9C2B-8A74ADE0A1AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
