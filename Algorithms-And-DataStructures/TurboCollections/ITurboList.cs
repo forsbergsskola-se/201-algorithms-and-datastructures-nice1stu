@@ -83,7 +83,8 @@ public class ITurboList
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            FirstNode = null;
+            count = 0;
         }
 
         public void RemoveAt(int index)
