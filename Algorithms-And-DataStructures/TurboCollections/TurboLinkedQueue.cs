@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 
+namespace TurboCollections;
+
 public interface ITurboQueue<T> : IEnumerable<T>
 {
     // returns the current amount of items contained in the stack.
