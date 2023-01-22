@@ -15,7 +15,7 @@ public class TurboLinkedListTests
     }
     
     [Test]
-    public void TestGet()
+    public void TestGetValueFromCorrectIndex()
     {
         list.Add(13);
         list.Add(5);
@@ -30,6 +30,23 @@ public class TurboLinkedListTests
         Assert.AreEqual(100, list.Get(2));
     }
     
+    [Test]
+    public void TestSetIteminCorrectIndex()
+    {
+        list.Add(13);
+        list.Add(5);
+        list.Add(100);
+        list.Add(101);
+        list.Add(69);
+
+        list.Set(0, 13);
+        list.Set(1, 5);
+        list.Set(2, 999);
+
+        Assert.AreEqual(13, list.Get(0));
+        Assert.AreEqual(5, list.Get(1));
+        Assert.AreEqual(999, list.Get(2));
+    }
     [Test]
     public void TestClear()
     {

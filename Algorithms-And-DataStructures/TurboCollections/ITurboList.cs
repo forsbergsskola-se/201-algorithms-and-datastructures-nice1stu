@@ -89,7 +89,18 @@ public class ITurboList
 
         public void Set(int index, T value)
         {
-            throw new NotImplementedException();
+            if (index < 0 || index >= count)
+            {
+                throw new ArgumentOutOfRangeException("index");
+            }
+
+            Node currentNode = FirstNode;
+            for (int i = 0; i < index; i++)
+            {
+                currentNode = currentNode.Next;
+            }
+
+            currentNode.Value = value;
         }
 
         public void Clear()
