@@ -27,13 +27,16 @@ public class TurboQueue<T> : ITurboQueue2<T>
     }
     // Also, we store the first instead of the last Node. First Come, First Serve.
     Node FirstNode;
+    // Add last node.
+    Node LastNode;
 
     public void Enqueue(T value)
     {
         Node newNode = new Node { Value = value };
-        if (FirstNode == null)
+        if (LastNode == null)
         {
-            FirstNode = newNode;
+            LastNode = newNode;
+            
         } else
         {
             Node currentNode = FirstNode;
@@ -62,6 +65,7 @@ public class TurboQueue<T> : ITurboQueue2<T>
     public void Clear()
     {
         FirstNode = null;
+        LastNode = null;
         count = 0;
     }
 
