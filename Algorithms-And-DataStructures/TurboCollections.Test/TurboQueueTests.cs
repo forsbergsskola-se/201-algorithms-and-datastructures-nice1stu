@@ -32,7 +32,7 @@ public class TurboQueueTests
     }
     
     [Test]
-    public void DequeueTest()
+    public void DequeueTestRemove2Items()
     {
         var queue = new TurboQueue<int>();
         queue.Enqueue(100);
@@ -41,9 +41,10 @@ public class TurboQueueTests
         queue.Enqueue(101);
         queue.Enqueue(54);
 
-        queue.Dequeue();
+        var item1 = queue.Dequeue();
+        var item2 = queue.Dequeue();
         
-        Assert.AreEqual(5, queue.Peek());
+        Assert.AreEqual(13, queue.Peek());
     }
 
     [Test]
