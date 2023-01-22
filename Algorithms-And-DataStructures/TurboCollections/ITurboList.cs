@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace TurboCollections;
 
@@ -71,9 +73,18 @@ public class ITurboList
 
         public T Get(int index)
         {
-            throw new NotImplementedException();
-            // run through the Nodes Node by Node until you reach the correct index
-            // then return the value of that node
+            if (index < 0 || index >= count)
+            {
+                throw new ArgumentOutOfRangeException("index");
+            }
+
+            Node currentNode = FirstNode;
+            for (int i = 0; i < index; i++)
+            {
+                currentNode = currentNode.Next;
+            }
+
+            return currentNode.Value;
         }
 
         public void Set(int index, T value)
