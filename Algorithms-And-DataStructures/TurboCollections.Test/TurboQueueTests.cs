@@ -3,7 +3,7 @@
 public class TurboQueueTests
 {
     [Test]
-    public void EnqueueTestcheckStoredValues()
+    public void EnqueueTestcheckStoredValuesAre()
     {
         var queue = new TurboQueue<int>();
                 
@@ -13,7 +13,7 @@ public class TurboQueueTests
         queue.Enqueue(101);
         queue.Enqueue(54);
                 
-        CollectionAssert.AreEqual(queue, new[]{100, 5, 13, 101, 54});
+        Assert.That(new[]{100, 5, 13, 101, 54}, Is.EqualTo(queue));
     }
     
     [Test]

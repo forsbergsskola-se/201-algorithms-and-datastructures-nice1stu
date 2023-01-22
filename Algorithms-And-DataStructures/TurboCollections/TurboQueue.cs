@@ -35,16 +35,13 @@ public class TurboQueue<T> : ITurboQueue2<T>
         Node newNode = new Node { Value = value };
         if (LastNode == null)
         {
+            FirstNode = newNode;
             LastNode = newNode;
             
         } else
         {
-            Node currentNode = FirstNode;
-            while (currentNode.Next != null)
-            {
-                currentNode = currentNode.Next;
-            }
-            currentNode.Next = newNode;
+            LastNode.Next = newNode;
+            LastNode = newNode;
         }
         count++;
     }
