@@ -60,5 +60,33 @@ public class TurboLinkedListTests
 
         Assert.AreEqual(0, list.Count);
     }
+    
+    [Test]
+    public void TestRemoveIndexAT()
+    {
+        list.Add(13);
+        list.Add(5);
+        list.Add(100);
+        list.Add(101);
+        list.Add(69);
+
+        list.RemoveAt(2);
+
+        Assert.AreEqual(4, list.Count);
+        Assert.AreEqual(101, list.Get(2));
+    }
+    
+    [Test]
+    public void TestContainsValueAtCorrectIndex()
+    {
+        list.Add(13);
+        list.Add(5);
+        list.Add(100);
+        list.Add(101);
+        list.Add(69);
+
+        Assert.IsTrue(list.Contains(69));
+        Assert.IsFalse(list.Contains(999));
+    }
 
 }

@@ -116,7 +116,18 @@ public class ITurboList
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            Node currentNode = FirstNode;
+            while (currentNode != null)
+            {
+                if (currentNode.Value.Equals(item))
+                {
+                    return true;
+                }
+
+                currentNode = currentNode.Next;
+            }
+
+            return false;
         }
 
         public int IndexOf(T item)
