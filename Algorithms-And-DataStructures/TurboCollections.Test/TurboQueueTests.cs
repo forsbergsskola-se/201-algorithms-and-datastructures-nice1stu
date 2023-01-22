@@ -29,7 +29,6 @@ public class TurboQueueTests
         var result = queue.Peek();
 
         Assert.AreEqual(100, result);
-        Assert.AreEqual(100, result);
     }
     
     [Test]
