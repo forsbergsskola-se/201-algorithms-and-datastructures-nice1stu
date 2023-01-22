@@ -1,3 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
 
-Console.WriteLine("Hello, World!");
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(" /\\_/\\ ");
+        Console.WriteLine("( o.o )");
+        Console.WriteLine(" > ^ <");
+    }
+}
