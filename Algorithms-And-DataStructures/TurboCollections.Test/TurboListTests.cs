@@ -48,7 +48,7 @@ public class TurboLinkedListTests
         Assert.AreEqual(999, list.Get(2));
     }
     [Test]
-    public void TestClear()
+    public void TestCountIsZeroAfterClear()
     {
         list.Add(13);
         list.Add(5);
