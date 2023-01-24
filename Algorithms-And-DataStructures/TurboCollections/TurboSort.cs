@@ -3,46 +3,30 @@ using System.Collections.Generic;
 
 namespace TurboCollections
 {
-    public class TurboSort
+    public static partial class TurboSort<T> where T : IComparable
     {
-        //Selection Sort - Selection Sort is a sorting algorithm that finds the minimum value in the array for each iteration of the loop.
-        public static List<int> SelectionSort(List<int> input)
+        public static void bubbleSort(TurboLinkedList<T> list)
         {
-            for (int i = 0; i < input.Count - 1; i++)
+            if(list == null || list.Count == 0) return;
+            LinkedListNode<T> currentNode = new LinkedListNode<T>(list.First);
+            LinkedListNode<T> nextNode = list.First.Next;
+            for (int i = 0; i < list.Count - 1; i++)
             {
-                int minIndex = i;
-                for (int j = i + 1; j < input.Count; j++)
+                currentNode = list.First;
+                nextNode = list.First.Next;
+                for (int j = 0; j < list.Count - i - 1; j++)
                 {
-                    if (input[j] < input[minIndex])
+                    if (currentNode.Value.CompareTo(nextNode.Value) > 0)
                     {
-                        minIndex = j;
+                        T temp = currentNode.Value;
+                        currentNode.Value = nextNode.Value;
+                        nextNode.Value = temp;
                     }
-                }
-                int temp = input[i];
-                input[i] = input[minIndex];
-                input[minIndex] = temp;
-            }
-            return input;
-        }
-        
-        //Bubble Sort - a comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.
-        public static List<int> BubbleSort(List<int> input)
-        {
-            int temp;
-            for (int i = 0; i < input.Count - 1; i++)
-            {
-                for (int j = 0; j < input.Count - i - 1; j++)
-                {
-                    if (input[j] > input[j + 1])
-                    {
-                        temp = input[j];
-                        input[j] = input[j + 1];
-                        input[j + 1] = temp;
-                    }
+                    currentNode = currentNode.Next;
+                    nextNode = nextNode.Next;
                 }
             }
-            return input;
         }
     }
-}
 
+}

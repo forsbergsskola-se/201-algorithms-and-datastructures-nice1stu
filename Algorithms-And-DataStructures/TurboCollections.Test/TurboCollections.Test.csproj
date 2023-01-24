@@ -21,4 +21,8 @@
       <ProjectReference Include="..\TurboCollections\TurboCollections.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="TurboSortTests.cs" />
+    </ItemGroup>
+
 </Project>

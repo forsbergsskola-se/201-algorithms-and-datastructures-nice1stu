@@ -13,7 +13,7 @@ namespace TurboCollections.Tests
         public void BubbleSort_SortsList()
         {
             var stopwatch = Stopwatch.StartNew();
-            var actual = TurboSort.BubbleSort(_defaultList);
+            var actual = BubbleSort.bubbleSort(_defaultList);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 

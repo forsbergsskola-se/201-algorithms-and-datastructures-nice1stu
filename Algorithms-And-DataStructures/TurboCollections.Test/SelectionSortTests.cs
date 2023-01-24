@@ -11,7 +11,7 @@ public class SelectionSortTests
         public void SelectionSort_SortsList()
         {
             var stopwatch = Stopwatch.StartNew();
-            var actual = TurboSort.SelectionSort(_defaultList);
+            var actual = SelectionSort.selectionSort(_defaultList);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
             
