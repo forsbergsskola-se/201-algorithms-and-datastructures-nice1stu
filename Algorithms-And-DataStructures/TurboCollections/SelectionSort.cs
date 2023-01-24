@@ -18,9 +18,7 @@ namespace TurboCollections
                         minIndex = j;
                     }
                 }
-                int temp = input[i];
-                input[i] = input[minIndex];
-                input[minIndex] = temp;
+                (input[i], input[minIndex]) = (input[minIndex], input[i]);
             }
             return input;
         }
