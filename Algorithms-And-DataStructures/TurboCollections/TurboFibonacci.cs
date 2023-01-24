@@ -17,4 +17,17 @@ public class TurboFibonacci
         }
         return FibonacciRecursive(nthNumber-1) + FibonacciRecursive(nthNumber-2);
     }
+    
+    //Iterative
+    public static int FibonacciIterative(int nthNumber)
+    {
+        int a = 0, b = 1, c;
+        for (int i = 0; i < nthNumber; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return a;
+    }
 }
