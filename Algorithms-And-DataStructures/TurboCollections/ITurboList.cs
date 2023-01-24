@@ -35,78 +35,68 @@ public interface ITurboList<T> : IEnumerable<T>
 public class ITurboList
 {
     
-    public class TurboLinkedList<T> : ITurboList<T>
+    public class TurboLinkedList<T> : IEnumerable<T> // ICollection
     {
-        // This class is VERY similar to the TurboLinkedStack
-        class Node
-        {
+        // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    
+        private class Node {
             public T Value;
-            // But we store the Next Node for each Node instead.
-            public Node Next;
-        }
-        // Also, we store the first instead of the last Node. First Come, First Serve.
-        Node FirstNode;
+            public Node? Next;
 
-        private int count;
-        public int Count
-        {
-            get { return count; }
-        }
-
-        public void Add(T value)
-        {
-            Node newNode = new Node { Value = value };
-            if (FirstNode == null)
+            public Node(T value, Node? next)
             {
-                FirstNode = newNode;
-            } else
-            {
-                Node currentNode = FirstNode;
-                while (currentNode.Next != null)
-                {
-                    currentNode = currentNode.Next;
-                }
-                currentNode.Next = newNode;
+                Value = value;
+                Next = next;
             }
-            count++;
+        }
+    
+        public int Count { get; private set; }
+
+        private Node? _firstNode;
+        private Node? _lastNode;
+
+        public void Add(T item)
+        {
+            if (_lastNode == null)
+            {
+                _firstNode = _lastNode = new Node(item, null);
+            }
+            else
+            {
+                _lastNode = _lastNode.Next = new Node(item, null);
+            }
+            Count++;
         }
 
         public T Get(int index)
         {
-            if (index < 0 || index >= count)
-            {
-                throw new ArgumentOutOfRangeException("index");
-            }
-
-            Node currentNode = FirstNode;
+            if (index < 0) throw new IndexOutOfRangeException();
+            if (index >= Count) throw new IndexOutOfRangeException();
+            Node current = _firstNode!; // validated through index checks above
             for (int i = 0; i < index; i++)
             {
-                currentNode = currentNode.Next;
+                current = current.Next!; // validated through index checks above
             }
 
-            return currentNode.Value;
+            return current.Value;
         }
 
         public void Set(int index, T value)
         {
-            if (index < 0 || index >= count)
+            if (index >= Count) throw new IndexOutOfRangeException();
+            Node current = _firstNode!;
+            for (int i = 0; i < index; i++) // 2
             {
-                throw new ArgumentOutOfRangeException("index");
+                current = current.Next!;
             }
-
-            Node currentNode = FirstNode;
-            for (int i = 0; i < index; i++)
-            {
-                currentNode = currentNode.Next;
-            }
-
-            currentNode.Value = value;
+        
+            current.Value = value;
         }
 
         public void Clear()
         {
-            FirstNode = null;
-            count = 0;
+            _firstNode = _lastNode = null;
+            Count = 0;
         }
 
         public void RemoveAt(int index)
@@ -116,7 +106,7 @@ public class ITurboList
 
         public bool Contains(T item)
         {
-            Node currentNode = FirstNode;
+            Node currentNode = _firstNode;
             while (currentNode != null)
             {
                 if (currentNode.Value.Equals(item))
@@ -132,8 +122,8 @@ public class ITurboList
 
         public int IndexOf(T item)
         {
-            Node currentNode = FirstNode;
-            for (int i = 0; i < count; i++)
+            Node currentNode = _firstNode;
+            for (int i = 0; i < Count; i++)
             {
                 if (currentNode.Value.Equals(item))
                 {
@@ -146,9 +136,27 @@ public class ITurboList
             return -1;
         }
 
-        public void Remove(T item)
+        public void Remove(int index)
         {
-            throw new NotImplementedException();
+            if (index >= Count) throw new IndexOutOfRangeException();
+            Node current = _firstNode!;
+            Node? previous = null;
+            for (int i = 0; i < index; i++)
+            {
+                previous = current;
+                current = current.Next!;
+            }
+
+            if (previous != null)
+                previous.Next = current.Next;
+
+            if (_firstNode == current)
+                _firstNode = current.Next;
+
+            if (_lastNode == current)
+                _lastNode = previous;
+
+            Count--;
         }
 
         public void AddRange(IEnumerable<T> items)
@@ -164,9 +172,66 @@ public class ITurboList
             throw new NotImplementedException();
         }
 
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            return new Enumerator(_firstNode);
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        class Enumerator : IEnumerator<T>
+        {
+            private readonly Node? _firstNode;
+            private Node? _currentNode;
+
+            public Enumerator(Node? firstNode)
+            {
+                _firstNode = firstNode;
+            }
+            public bool MoveNext()
+            {
+                _currentNode = _currentNode == null ? _firstNode : _currentNode.Next;
+                return _currentNode != null;
+            }
+
+            public void Reset()
+            {
+                _currentNode = null;
+            }
+
+            public T Current
+            {
+                get
+                {
+                    if (_currentNode == null) throw new InvalidOperationException();
+                    return _currentNode.Value;
+                }
+            }
+
+            object? IEnumerator.Current => Current;
+
+            public void Dispose() { }
+        }
+    
+        // 2000 (0-2000)
+        // 1000 (0-1000) (1000-2000)
+        // 500 (0-500)
+        // 250
+        // 125
+        // 62
+        // 31
+        // 15
+        // 7
+        // 3
+        // 2
+        // 1
+        public T this[int index]
+        {
+            get => Get(index);
+            set => Set(index, value);
         }
     }
 }

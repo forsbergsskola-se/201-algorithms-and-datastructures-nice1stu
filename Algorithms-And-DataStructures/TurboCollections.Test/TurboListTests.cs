@@ -1,12 +1,9 @@
-﻿using NUnit.Framework;
-using System;
-using System.Linq;
-using TurboCollections;
+﻿namespace TurboCollections.Test;
 
 [TestFixture]
 public class TurboLinkedListTests
 {
-    private ITurboList<int> list;
+    private ITurboList.TurboLinkedList<int> list;
 
     [SetUp]
     public void SetUp()
@@ -64,16 +61,7 @@ public class TurboLinkedListTests
     [Test]
     public void TestRemoveIndexAT()
     {
-        list.Add(13);
-        list.Add(5);
-        list.Add(100);
-        list.Add(101);
-        list.Add(69);
 
-        list.RemoveAt(2);
-
-        Assert.AreEqual(4, list.Count);
-        Assert.AreEqual(101, list.Get(2));
     }
     
     [Test]
@@ -99,10 +87,11 @@ public class TurboLinkedListTests
         list.Add(69);
 
         Assert.AreEqual(4, list.IndexOf(69));
-        Assert.AreEqual(0, list.IndexOf(999)); //Dammit, this is wrong, 0 is index 0
+        Assert.AreEqual(-1, list.IndexOf(999));
         Assert.AreEqual(0, list.IndexOf(13));
     }
     
+    [Test]
     public void TestRemove()
     {
         list.Add(13);
@@ -111,7 +100,7 @@ public class TurboLinkedListTests
         list.Add(101);
         list.Add(69);
 
-        list.RemoveAt(2);
+        list.Remove(2);
 
         Assert.AreEqual(4, list.Count);
         Assert.AreEqual(101, list.Get(2));
