@@ -1,46 +1,42 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
-namespace TurboCollections
+public static class TurboQuickSort
 {
-    public class TurboQuickSort
+    public static void Sort<T>(List<T> arr) where T : IComparable<T>
     {
-        public static int partitionFunc(int[] A, int left, int right, int pivot)
+        Sort(arr, 0, arr.Count - 1);
+    }
+
+    private static void Sort<T>(List<T> arr, int low, int high) where T : IComparable<T>
+    {
+        if (low < high)
         {
-            int leftPointer = left;
-            int rightPointer = right - 1;
-
-            while (true)
-            {
-                while (A[++leftPointer] < pivot) { }
-
-                while (rightPointer > 0 && A[--rightPointer] > pivot) { }
-
-                if (leftPointer < rightPointer)
-                {
-                    (A[leftPointer], A[rightPointer]) = (A[rightPointer], A[leftPointer]);
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            (A[leftPointer], A[right]) = (A[right], A[leftPointer]);
-            return leftPointer;
+            int pivotIndex = Partition(arr, low, high);
+            Sort(arr, low, pivotIndex);
+            Sort(arr, pivotIndex + 1, high);
         }
+    }
 
-        public static void quickSort(int[] A, int left, int right)
+    private static int Partition<T>(List<T> arr, int low, int high) where T : IComparable<T>
+    {
+        T pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++)
         {
-            if (right - left > 0)
+            if (arr[j].CompareTo(pivot) <= 0)
             {
-                int pivot = A[right];
-                int partition = partitionFunc(A, left, right, pivot);
-                quickSort(A, left, partition - 1);
-                quickSort(A, partition + 1, right);
+                i++;
+                Swap(arr, i, j);
             }
-            else
-                return;
         }
+        Swap(arr, i + 1, high);
+        return i;
+    }
 
+    private static void Swap<T>(List<T> arr, int i, int j)
+    {
+        T temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }

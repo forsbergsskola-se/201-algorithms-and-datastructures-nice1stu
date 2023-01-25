@@ -20,11 +20,11 @@ public class TurboLinkedListTests
         list.Add(101);
         list.Add(69);
 
-        Assert.AreEqual(13, list.Get(0));
-        Assert.AreEqual(5, list.Get(1));
-        Assert.AreEqual(69, list.Get(4));
-        Assert.AreEqual(101, list.Get(3));
-        Assert.AreEqual(100, list.Get(2));
+        Assert.That(list.Get(0), Is.EqualTo(13));
+        Assert.That(list.Get(1), Is.EqualTo(5));
+        Assert.That(list.Get(4), Is.EqualTo(69));
+        Assert.That(list.Get(3), Is.EqualTo(101));
+        Assert.That(list.Get(2), Is.EqualTo(100));
     }
     
     [Test]
@@ -40,9 +40,9 @@ public class TurboLinkedListTests
         list.Set(1, 5);
         list.Set(2, 999);
 
-        Assert.AreEqual(13, list.Get(0));
-        Assert.AreEqual(5, list.Get(1));
-        Assert.AreEqual(999, list.Get(2));
+        Assert.That(list.Get(0), Is.EqualTo(13));
+        Assert.That(list.Get(1), Is.EqualTo(5));
+        Assert.That(list.Get(2), Is.EqualTo(999));
     }
     [Test]
     public void TestCountIsZeroAfterClear()
@@ -55,7 +55,7 @@ public class TurboLinkedListTests
 
         list.Clear();
 
-        Assert.AreEqual(0, list.Count);
+        Assert.That(list.Count, Is.EqualTo(0));
     }
     
     [Test]
@@ -86,9 +86,9 @@ public class TurboLinkedListTests
         list.Add(101);
         list.Add(69);
 
-        Assert.AreEqual(4, list.IndexOf(69));
-        Assert.AreEqual(-1, list.IndexOf(999));
-        Assert.AreEqual(0, list.IndexOf(13));
+        Assert.That(list.IndexOf(69), Is.EqualTo(4));
+        Assert.That(list.IndexOf(999), Is.EqualTo(-1));
+        Assert.That(list.IndexOf(13), Is.EqualTo(0));
     }
     
     [Test]
@@ -102,8 +102,8 @@ public class TurboLinkedListTests
 
         list.Remove(2);
 
-        Assert.AreEqual(4, list.Count);
-        Assert.AreEqual(101, list.Get(2));
+        Assert.That(list.Count, Is.EqualTo(4));
+        Assert.That(list.Get(2), Is.EqualTo(101));
     }
 
 }
