@@ -75,37 +75,37 @@ namespace TurboCollections.Test
         [Test]
         public void QuickSortRandomizedList()
         {
-            Random random = new Random();
-            int[] randomlist = new int[random.Next(1, 1000)];
-            for (int i = 0; i < randomlist.Length; i++)
+            var random = new Random();
+            var randomlist = new int[random.Next(1, 1000)];
+            for (var i = 0; i < randomlist.Length; i++)
             {
                 randomlist[i] = random.Next(1, 100);
             }
 
-            List<int> listToSort = new List<int>(randomlist);
+            var listToSort = new List<int>(randomlist);
             Console.WriteLine("List to Sort");
-            for (int i = 0; i < listToSort.Count; i++)
+            foreach (var t in listToSort)
             {
-                Console.Write(listToSort[i] + " ");
+                Console.Write(t + " ");
             }
             Console.WriteLine();
-            Stopwatch stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             SortQuick.QuickSort(listToSort);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 
             // Verify that the list is sorted by comparing adjacent elements
-            for (int i = 1; i < listToSort.Count; i++)
+            for (var i = 1; i < listToSort.Count; i++)
             {
                 Assert.That(listToSort[i-1], Is.LessThanOrEqualTo(listToSort[i]));
             }
 
             Console.WriteLine();
             Console.WriteLine("Sorted");
-            for (int i = 0; i < listToSort.Count; i++)
+            foreach (var t in listToSort)
             {
-                Console.Write(listToSort[i] + " ");
+                Console.Write(t + " ");
             }
             Console.WriteLine();
             Console.WriteLine($"Elapsed time: {elapsed}");

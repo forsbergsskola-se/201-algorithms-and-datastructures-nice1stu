@@ -4,18 +4,18 @@ namespace TurboCollections.Test;
 
 public class SortSelectionTests
     {
-        private List<int> _defaultList = new List<int> { 13, 666, 2, 69, 1 };
-        private List<int> _expectedSortedList = new List<int> { 1, 2, 13, 69, 666 };
 
         [Test]
         public void SelectionSort_SortsList()
         {
+            List<int> _defaultList = new List<int> { 13, 666, 2, 69, 1 };
+            List<int> _expectedSortedList = new List<int> { 1, 2, 13, 69, 666 };
             var stopwatch = Stopwatch.StartNew();
-            var actual = SortSelection.SelectionSort(_defaultList);
+            SortSelection.SelectionSort(_defaultList);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
             
-            Assert.That(actual, Is.EqualTo(_expectedSortedList).AsCollection);
+            Assert.That(_defaultList, Is.EqualTo(_expectedSortedList).AsCollection);
             Console.WriteLine($"Elapsed time: {elapsed}");
         }
         

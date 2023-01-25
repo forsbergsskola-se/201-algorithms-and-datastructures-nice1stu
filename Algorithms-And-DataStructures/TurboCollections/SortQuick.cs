@@ -2,7 +2,7 @@
 
 public static class SortQuick
 {
-    public static void QuickSort<T>(List<T> arr) where T : IComparable<T>
+    /*public static void QuickSort<T>(List<T> arr) where T : IComparable<T>
     {
         Sort(arr, 0, arr.Count - 1);
     }
@@ -17,26 +17,61 @@ public static class SortQuick
         }
     }
 
-    private static int Partition<T>(List<T> arr, int low, int high) where T : IComparable<T>
+    private static int Partition<T>(IList<T> arr, int low, int high) where T : IComparable<T>
     {
-        T pivot = arr[high];
-        int i = low - 1;
-        for (int j = low; j < high; j++)
+        var pivot = arr[high];
+        var i = low - 1;
+        for (var j = low; j < high; j++)
         {
-            if (arr[j].CompareTo(pivot) <= 0)
-            {
-                i++;
-                Swap(arr, i, j);
-            }
+            if (arr[j].CompareTo(pivot) > 0) continue;
+            i++;
+            Swap(arr, i, j);
         }
         Swap(arr, i + 1, high);
         return i;
     }
 
-    private static void Swap<T>(List<T> arr, int i, int j)
+    private static void Swap<T>(IList<T> arr, int i, int j)
     {
-        T temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+        (arr[i], arr[j]) = (arr[j], arr[i]);
+    }*/
+    
+    function partitionFunc(left, right, pivot)
+    leftPointer = left
+        rightPointer = right - 1
+
+            while True do
+    while A[++leftPointer] < pivot do
+    //do-nothing            
+    end while
+		
+    while rightPointer > 0 && A[--rightPointer] > pivot do
+    //do-nothing         
+    end while
+		
+    if leftPointer >= rightPointer
+    break
+    else                
+    swap leftPointer,rightPointer
+    end if
+		
+    end while 
+	
+    swap leftPointer,right
+        return leftPointer
+	
+        end function
+
+        procedure quickSort(left, right)
+
+        if right-left <= 0
+    return
+    else     
+    pivot = A[right]
+    partition = partitionFunc(left, right, pivot)
+    quickSort(left,partition-1)
+    quickSort(partition+1,right)    
+    end if		
+   
+    end procedure
 }
