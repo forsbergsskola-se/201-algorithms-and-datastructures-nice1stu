@@ -79,10 +79,16 @@ namespace TurboCollections.Test
             int[] randomlist = new int[random.Next(1, 1000)];
             for (int i = 0; i < randomlist.Length; i++)
             {
-                randomlist[i] = random.Next(1, 1000);
+                randomlist[i] = random.Next(1, 100);
             }
 
             List<int> listToSort = new List<int>(randomlist);
+            Console.WriteLine("List to Sort");
+            for (int i = 0; i < listToSort.Count; i++)
+            {
+                Console.Write(listToSort[i] + " ");
+            }
+            Console.WriteLine();
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             SortQuick.QuickSort(listToSort);
@@ -95,6 +101,8 @@ namespace TurboCollections.Test
                 Assert.That(listToSort[i-1], Is.LessThanOrEqualTo(listToSort[i]));
             }
 
+            Console.WriteLine();
+            Console.WriteLine("Sorted");
             for (int i = 0; i < listToSort.Count; i++)
             {
                 Console.Write(listToSort[i] + " ");

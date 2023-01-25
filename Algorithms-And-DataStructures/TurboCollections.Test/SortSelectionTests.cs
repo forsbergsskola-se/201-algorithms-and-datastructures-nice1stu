@@ -26,7 +26,7 @@ public class SortSelectionTests
             int[] randomlist = new int[random.Next(1, 1000)];
             for (int i = 0; i < randomlist.Length; i++)
             {
-                randomlist[i] = random.Next(1, 1000);
+                randomlist[i] = random.Next(1, 100);
             }
 
             List<int> listToSort = new List<int>(randomlist);
