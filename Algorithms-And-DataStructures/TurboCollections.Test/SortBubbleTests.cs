@@ -36,6 +36,7 @@ namespace TurboCollections.Tests
             stopwatch.Start();
             SortBubble.bubbleSort(listToSort);
             stopwatch.Stop();
+            var elapsed = stopwatch.Elapsed;
 
             // Verify that the list is sorted by comparing adjacent elements
             for (int i = 1; i < listToSort.Count; i++)
@@ -48,7 +49,7 @@ namespace TurboCollections.Tests
                 Console.Write(listToSort[i] + " ");
             }
             Console.WriteLine();
-            Console.WriteLine(stopwatch.Elapsed);
+            Console.WriteLine($"Elapsed time: {elapsed}");
         }
     }
 }

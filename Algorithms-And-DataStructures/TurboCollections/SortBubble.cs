@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TurboCollections
 {
-    public class SortBubble
+    public static class SortBubble
     {
         //Bubble Sort - a comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.
         public static List<int> bubbleSort(List<int> input)

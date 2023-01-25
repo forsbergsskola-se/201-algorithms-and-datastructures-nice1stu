@@ -87,6 +87,7 @@ namespace TurboCollections.Test
             stopwatch.Start();
             SortQuick.QuickSort(listToSort);
             stopwatch.Stop();
+            var elapsed = stopwatch.Elapsed;
 
             // Verify that the list is sorted by comparing adjacent elements
             for (int i = 1; i < listToSort.Count; i++)
@@ -99,7 +100,7 @@ namespace TurboCollections.Test
                 Console.Write(listToSort[i] + " ");
             }
             Console.WriteLine();
-            Console.WriteLine(stopwatch.Elapsed);
+            Console.WriteLine($"Elapsed time: {elapsed}");
         }
 
     }
