@@ -105,5 +105,4 @@ public class TurboLinkedListTests
         Assert.That(list.Count, Is.EqualTo(4));
         Assert.That(list.Get(2), Is.EqualTo(101));
     }
-
 }

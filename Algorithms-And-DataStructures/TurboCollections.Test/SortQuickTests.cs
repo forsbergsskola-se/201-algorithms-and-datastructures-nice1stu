@@ -3,7 +3,7 @@
 namespace TurboCollections.Test
 {
     [TestFixture]
-    public class TurboLinkedListQuickSortTests
+    public class SortQuickTests
     {
         [Test]
         public void TestQuickSort_WithIntegerValues()
@@ -21,7 +21,7 @@ namespace TurboCollections.Test
             list.Add(69);
             list.Add(13);
 
-            TurboQuickSort.Sort(list);
+            SortQuick.QuickSort(list);
             stopwatch.Stop();
             Console.WriteLine($"Time elapsed: {stopwatch.ElapsedMilliseconds} ms");
             
@@ -48,7 +48,7 @@ namespace TurboCollections.Test
             list.Add("elderberry");
             list.Add("fig");
 
-            TurboQuickSort.Sort(list);
+            SortQuick.QuickSort(list);
             
             for (int i = 0; i < list.Count; i++)
             {
@@ -68,7 +68,7 @@ namespace TurboCollections.Test
         {
             List<int> listToSort = new List<int> { 666, 13, 1, 2, 69 };
             TurboLinkedList<int> listTarget = new TurboLinkedList<int> { 1, 2, 13, 69, 666 };
-            TurboQuickSort.Sort(listToSort);
+            SortQuick.QuickSort(listToSort);
             CollectionAssert.AreEqual(listTarget, listToSort);
         }
 
@@ -85,7 +85,7 @@ namespace TurboCollections.Test
             List<int> listToSort = new List<int>(randomlist);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            TurboQuickSort.Sort(listToSort);
+            SortQuick.QuickSort(listToSort);
             stopwatch.Stop();
 
             // Verify that the list is sorted by comparing adjacent elements

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TurboCollections
 {
-    public partial class SelectionSort
+    public partial class SortSelection
     {
         //Selection Sort - Selection Sort is a sorting algorithm that finds the minimum value in the array for each iteration of the loop.
         public static List<int> selectionSort(List<int> input)

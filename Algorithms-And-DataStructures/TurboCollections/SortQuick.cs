@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-public static class TurboQuickSort
+public static class SortQuick
 {
-    public static void Sort<T>(List<T> arr) where T : IComparable<T>
+    public static void QuickSort<T>(List<T> arr) where T : IComparable<T>
     {
         Sort(arr, 0, arr.Count - 1);
     }
