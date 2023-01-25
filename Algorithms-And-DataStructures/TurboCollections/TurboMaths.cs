@@ -1,7 +1,5 @@
 ﻿namespace TurboCollections;
 
-using System.Collections;
-
 public class TurboMaths
 {
     public static void SayHello()

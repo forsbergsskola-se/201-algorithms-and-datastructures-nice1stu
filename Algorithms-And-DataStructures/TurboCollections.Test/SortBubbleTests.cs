@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics;
-using System.Linq;
-using NUnit.Framework;
 
-namespace TurboCollections.Tests
+namespace TurboCollections.Test
 {
     public class SortBubbleTests
     {
@@ -13,7 +11,7 @@ namespace TurboCollections.Tests
         public void BubbleSort_SortsList()
         {
             var stopwatch = Stopwatch.StartNew();
-            var actual = SortBubble.bubbleSort(_defaultList);
+            var actual = SortBubble.BubbleSort(_defaultList);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 
@@ -34,7 +32,7 @@ namespace TurboCollections.Tests
             List<int> listToSort = new List<int>(randomlist);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            SortBubble.bubbleSort(listToSort);
+            SortBubble.BubbleSort(listToSort);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 

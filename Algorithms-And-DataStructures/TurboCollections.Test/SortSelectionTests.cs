@@ -11,7 +11,7 @@ public class SortSelectionTests
         public void SelectionSort_SortsList()
         {
             var stopwatch = Stopwatch.StartNew();
-            var actual = SortSelection.selectionSort(_defaultList);
+            var actual = SortSelection.SelectionSort(_defaultList);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
             
@@ -32,7 +32,7 @@ public class SortSelectionTests
             List<int> listToSort = new List<int>(randomlist);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            SortSelection.selectionSort(listToSort);
+            SortSelection.SelectionSort(listToSort);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 

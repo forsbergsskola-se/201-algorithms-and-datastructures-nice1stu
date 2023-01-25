@@ -11,7 +11,8 @@ public class TurboFibonacci
         {
             return 0;
         }
-        else if (nthNumber == 1)
+
+        if (nthNumber == 1)
         {
             return 1;
         }

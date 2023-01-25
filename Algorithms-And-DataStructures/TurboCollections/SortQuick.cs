@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿namespace TurboCollections;
 
 public static class SortQuick
 {
