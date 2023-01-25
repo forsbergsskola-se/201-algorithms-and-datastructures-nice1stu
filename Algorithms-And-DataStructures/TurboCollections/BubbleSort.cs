@@ -13,12 +13,10 @@ namespace TurboCollections
             {
                 for (int j = 0; j < input.Count - i - 1; j++)
                 {
-                    if (input[j] > input[j + 1])
-                    {
-                        temp = input[j];
-                        input[j] = input[j + 1];
-                        input[j + 1] = temp;
-                    }
+                    if (input[j] <= input[j + 1]) continue;
+                    temp = input[j];
+                    input[j] = input[j + 1];
+                    input[j + 1] = temp;
                 }
             }
             return input;

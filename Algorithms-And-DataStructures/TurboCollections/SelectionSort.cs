@@ -13,10 +13,8 @@ namespace TurboCollections
                 int minIndex = i;
                 for (int j = i + 1; j < input.Count; j++)
                 {
-                    if (input[j] < input[minIndex])
-                    {
-                        minIndex = j;
-                    }
+                    if (input[j] >= input[minIndex]) continue;
+                    minIndex = j;
                 }
                 (input[i], input[minIndex]) = (input[minIndex], input[i]);
             }

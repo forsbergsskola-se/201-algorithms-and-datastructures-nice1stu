@@ -7,13 +7,13 @@ namespace TurboCollections
     {
         public static void bubbleSort(TurboLinkedList<T> list)
         {
-            if(list == null || list.Count == 0) return;
-            LinkedListNode<T> currentNode = new LinkedListNode<T>(list.First);
-            LinkedListNode<T> nextNode = list.First.Next;
+            if (list == null || list.Count == 0) return;
+            LinkedListNode<T> currentNode = list.First;
+            LinkedListNode<T> nextNode = currentNode.Next;
             for (int i = 0; i < list.Count - 1; i++)
             {
                 currentNode = list.First;
-                nextNode = list.First.Next;
+                nextNode = currentNode.Next;
                 for (int j = 0; j < list.Count - i - 1; j++)
                 {
                     if (currentNode.Value.CompareTo(nextNode.Value) > 0)
@@ -22,11 +22,11 @@ namespace TurboCollections
                         currentNode.Value = nextNode.Value;
                         nextNode.Value = temp;
                     }
+
                     currentNode = currentNode.Next;
                     nextNode = nextNode.Next;
                 }
             }
         }
     }
-
 }
