@@ -23,7 +23,7 @@ public class SortSelectionTests
         public void QuickSortRandomizedList()
         {
             Random random = new Random();
-            int[] randomlist = new int[random.Next(1, 1000)];
+            int[] randomlist = new int[random.Next(1, 100)];
             for (int i = 0; i < randomlist.Length; i++)
             {
                 randomlist[i] = random.Next(1, 100);

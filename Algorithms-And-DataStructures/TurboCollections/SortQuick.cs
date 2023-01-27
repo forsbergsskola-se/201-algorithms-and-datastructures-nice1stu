@@ -2,7 +2,7 @@
 
 public static class SortQuick
 {
-    /*public static void QuickSort<T>(List<T> arr) where T : IComparable<T>
+    public static void QuickSort<T>(List<T> arr) where T : IComparable<T>
     {
         Sort(arr, 0, arr.Count - 1);
     }
@@ -34,44 +34,5 @@ public static class SortQuick
     private static void Swap<T>(IList<T> arr, int i, int j)
     {
         (arr[i], arr[j]) = (arr[j], arr[i]);
-    }*/
-    
-    function partitionFunc(left, right, pivot)
-    leftPointer = left
-        rightPointer = right - 1
-
-            while True do
-    while A[++leftPointer] < pivot do
-    //do-nothing            
-    end while
-		
-    while rightPointer > 0 && A[--rightPointer] > pivot do
-    //do-nothing         
-    end while
-		
-    if leftPointer >= rightPointer
-    break
-    else                
-    swap leftPointer,rightPointer
-    end if
-		
-    end while 
-	
-    swap leftPointer,right
-        return leftPointer
-	
-        end function
-
-        procedure quickSort(left, right)
-
-        if right-left <= 0
-    return
-    else     
-    pivot = A[right]
-    partition = partitionFunc(left, right, pivot)
-    quickSort(left,partition-1)
-    quickSort(partition+1,right)    
-    end if		
-   
-    end procedure
+    }
 }

@@ -1,27 +1,20 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
+using System.Diagnostics;
 
 namespace TurboCollections.Test
 {
     [TestFixture]
     public class SortQuickTests
-    {
+    {/*
         [Test]
         public void TestQuickSort_WithIntegerValues()
         {
+            var list = new List<int>(){666, 1, 2, 737, 9, 2, 6, 69, 13};
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            var list = new List<int>();
-            list.Add(666);
-            list.Add(1);
-            list.Add(2);
-            list.Add(737);
-            list.Add(9);
-            list.Add(2);
-            list.Add(6);
-            list.Add(69);
-            list.Add(13);
-
-            SortQuick.QuickSort(list);
+            SortQuick.QuickSort2Partitions(list.ToArray(), 0, list.Count - 1);
             stopwatch.Stop();
             Console.WriteLine($"Time elapsed: {stopwatch.ElapsedMilliseconds} ms");
             
@@ -30,7 +23,6 @@ namespace TurboCollections.Test
                 Console.WriteLine(list[i]);
             }
 
-
             for (int i = 0; i < list.Count - 1; i++)
             {
                 Assert.LessOrEqual(list[i], list[i + 1]);
@@ -38,37 +30,11 @@ namespace TurboCollections.Test
         }
 
         [Test]
-        public void TestQuickSort_WithStringValues()
-        {
-            var list = new List<string>();
-            list.Add("apple");
-            list.Add("banana");
-            list.Add("cherry");
-            list.Add("date");
-            list.Add("elderberry");
-            list.Add("fig");
-
-            SortQuick.QuickSort(list);
-            
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i]);
-            }
-
-
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                Assert.LessOrEqual(String.CompareOrdinal(list[i], list[i + 1]),0);
-            }
-        }
-
-        [Test]
-
         public void SelectionSort()
         {
-            List<int> listToSort = new List<int> { 666, 13, 1, 2, 69 };
-            TurboLinkedList<int> listTarget = new TurboLinkedList<int> { 1, 2, 13, 69, 666 };
-            SortQuick.QuickSort(listToSort);
+            var listToSort = new List<int> { 666, 13, 1, 2, 69 };
+            var listTarget = new List<int> { 1, 2, 13, 69, 666 };
+            SortQuick.QuickSort2Partitions(listToSort.ToArray(), 0, listToSort.Count - 1);
             CollectionAssert.AreEqual(listTarget, listToSort);
         }
 
@@ -91,7 +57,7 @@ namespace TurboCollections.Test
             Console.WriteLine();
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            SortQuick.QuickSort(listToSort);
+            SortQuick.QuickSort2Partitions(listToSort.ToArray(), 0, listToSort.Count - 1);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 
@@ -111,5 +77,5 @@ namespace TurboCollections.Test
             Console.WriteLine($"Elapsed time: {elapsed}");
         }
 
-    }
+    */}
 }

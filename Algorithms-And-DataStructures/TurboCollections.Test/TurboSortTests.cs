@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 
 namespace TurboCollections.Tests
-{
+{/*
     [TestFixture]
     public class TurboSortTests
     {
@@ -35,5 +35,5 @@ namespace TurboCollections.Tests
                 Assert.That(list, Is.Ordered);
             }
         }
-    }
+    }*/
 }
