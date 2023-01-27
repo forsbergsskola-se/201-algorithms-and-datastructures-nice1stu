@@ -1,20 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace TurboCollections.Test
 {
     [TestFixture]
     public class SortQuickTests
-    {/*
+    {
         [Test]
         public void TestQuickSort_WithIntegerValues()
         {
-            var list = new List<int>(){666, 1, 2, 737, 9, 2, 6, 69, 13};
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            SortQuick.QuickSort2Partitions(list.ToArray(), 0, list.Count - 1);
+            var list = new List<int>();
+            list.Add(666);
+            list.Add(1);
+            list.Add(2);
+            list.Add(737);
+            list.Add(9);
+            list.Add(2);
+            list.Add(6);
+            list.Add(69);
+            list.Add(13);
+
+            SortQuick.QuickSort(list);
             stopwatch.Stop();
             Console.WriteLine($"Time elapsed: {stopwatch.ElapsedMilliseconds} ms");
             
@@ -23,6 +30,7 @@ namespace TurboCollections.Test
                 Console.WriteLine(list[i]);
             }
 
+
             for (int i = 0; i < list.Count - 1; i++)
             {
                 Assert.LessOrEqual(list[i], list[i + 1]);
@@ -30,52 +38,78 @@ namespace TurboCollections.Test
         }
 
         [Test]
+        public void TestQuickSort_WithStringValues()
+        {
+            var list = new List<string>();
+            list.Add("apple");
+            list.Add("banana");
+            list.Add("cherry");
+            list.Add("date");
+            list.Add("elderberry");
+            list.Add("fig");
+
+            SortQuick.QuickSort(list);
+            
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+
+
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                Assert.LessOrEqual(String.CompareOrdinal(list[i], list[i + 1]),0);
+            }
+        }
+
+        [Test]
+
         public void SelectionSort()
         {
-            var listToSort = new List<int> { 666, 13, 1, 2, 69 };
-            var listTarget = new List<int> { 1, 2, 13, 69, 666 };
-            SortQuick.QuickSort2Partitions(listToSort.ToArray(), 0, listToSort.Count - 1);
+            List<int> listToSort = new List<int> { 666, 13, 1, 2, 69 };
+            TurboLinkedList<int> listTarget = new TurboLinkedList<int> { 1, 2, 13, 69, 666 };
+            SortQuick.QuickSort(listToSort);
             CollectionAssert.AreEqual(listTarget, listToSort);
         }
 
         [Test]
         public void QuickSortRandomizedList()
         {
-            var random = new Random();
-            var randomlist = new int[random.Next(1, 1000)];
-            for (var i = 0; i < randomlist.Length; i++)
+            Random random = new Random();
+            int[] randomlist = new int[random.Next(1, 1000)];
+            for (int i = 0; i < randomlist.Length; i++)
             {
                 randomlist[i] = random.Next(1, 100);
             }
 
-            var listToSort = new List<int>(randomlist);
+            List<int> listToSort = new List<int>(randomlist);
             Console.WriteLine("List to Sort");
-            foreach (var t in listToSort)
+            for (int i = 0; i < listToSort.Count; i++)
             {
-                Console.Write(t + " ");
+                Console.Write(listToSort[i] + " ");
             }
             Console.WriteLine();
-            var stopwatch = new Stopwatch();
+            Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            SortQuick.QuickSort2Partitions(listToSort.ToArray(), 0, listToSort.Count - 1);
+            SortQuick.QuickSort(listToSort);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 
             // Verify that the list is sorted by comparing adjacent elements
-            for (var i = 1; i < listToSort.Count; i++)
+            for (int i = 1; i < listToSort.Count; i++)
             {
                 Assert.That(listToSort[i-1], Is.LessThanOrEqualTo(listToSort[i]));
             }
 
             Console.WriteLine();
             Console.WriteLine("Sorted");
-            foreach (var t in listToSort)
+            for (int i = 0; i < listToSort.Count; i++)
             {
-                Console.Write(t + " ");
+                Console.Write(listToSort[i] + " ");
             }
             Console.WriteLine();
             Console.WriteLine($"Elapsed time: {elapsed}");
         }
 
-    */}
+    }
 }
