@@ -2,7 +2,6 @@
 
 namespace TurboCollections.Test
 {
-    [TestFixture]
     public class SortQuickTests
     {
         [Test]
