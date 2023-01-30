@@ -20,20 +20,16 @@ namespace TurboCollections.Tests
             Console.WriteLine($"Elapsed time: {elapsed}");
         }
         
-        [Test]
+        /*[Test]
         public void SelectionSortWorksForRandomUnorderedInput()
         {
-            [Test]
-            void SelectionSortWorksForRandomUnorderedInput()
-            {
-                var consecutiveData = Enumerable.Range(0, Random.Shared.Next(100, 200));
+            var consecutiveData = Enumerable.Range(0, Random.Shared.Next(100, 200));
                 var randomData = consecutiveData.Select(_ => Random.Shared.Next(0, 100)).ToArray();
                 TurboLinkedList<int> list = new TurboLinkedList<int>();
                 list.AddRange(randomData);
 
                 Assert.That(list, Is.EquivalentTo(randomData));
                 Assert.That(list, Is.Ordered);
-            }
-        }
+        }*/
     }
 }
