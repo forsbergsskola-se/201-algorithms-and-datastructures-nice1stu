@@ -2,7 +2,8 @@
 
 public class SearchBinary
 {
-    public int BinarySearchDisplay(int[] arr, int key) {
+    public int BinarySearchDisplay(int[] arr, int key)
+    {
         int minNum = 0;
         int maxNum = arr.Length - 1;
     

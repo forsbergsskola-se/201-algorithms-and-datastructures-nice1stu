@@ -30,14 +30,11 @@ namespace TurboCollections.Test
             }
 
 
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                Assert.LessOrEqual(list[i], list[i + 1]);
-            }
+            Assert.That(list,Is.Ordered.Ascending);
         }
 
         [Test]
-        public void TestQuickSort_WithStringValues()
+        public void TestQuickSortWithStringValues()
         {
             var list = new List<string>();
             list.Add("apple");
@@ -93,8 +90,7 @@ namespace TurboCollections.Test
             SortQuick.QuickSort(listToSort);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
-
-            // Verify that the list is sorted by comparing adjacent elements
+            
             for (int i = 1; i < listToSort.Count; i++)
             {
                 Assert.That(listToSort[i-1], Is.LessThanOrEqualTo(listToSort[i]));
