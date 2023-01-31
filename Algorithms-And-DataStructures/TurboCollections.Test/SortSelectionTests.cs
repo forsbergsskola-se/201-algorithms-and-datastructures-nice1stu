@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using NUnit.Framework;
+using System;
 
 namespace TurboCollections.Test;
 
@@ -11,14 +13,14 @@ public class SortSelectionTests
             List<int> _defaultList = new List<int> { 13, 666, 2, 69, 1 };
             List<int> _expectedSortedList = new List<int> { 1, 2, 13, 69, 666 };
             var stopwatch = Stopwatch.StartNew();
-            SortSelection.SelectionSort(_defaultList);
+            List<int> resultList = SortSelection.SelectionSort(_defaultList);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
-            
-            Assert.That(_defaultList, Is.EqualTo(_expectedSortedList).AsCollection);
+        
+            Assert.That(resultList, Is.EqualTo(_expectedSortedList).AsCollection);
             Console.WriteLine($"Elapsed time: {elapsed}");
         }
-        
+    
         [Test]
         public void QuickSortRandomizedList()
         {
@@ -32,19 +34,19 @@ public class SortSelectionTests
             List<int> listToSort = new List<int>(randomlist);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            SortSelection.SelectionSort(listToSort);
+            List<int> sortedList = SortSelection.SelectionSort(listToSort);
             stopwatch.Stop();
             var elapsed = stopwatch.Elapsed;
 
             // Verify that the list is sorted by comparing adjacent elements
-            for (int i = 1; i < listToSort.Count; i++)
+            for (int i = 1; i < sortedList.Count; i++)
             {
-                Assert.That(listToSort[i-1], Is.LessThanOrEqualTo(listToSort[i]));
+                Assert.That(sortedList[i-1], Is.LessThanOrEqualTo(sortedList[i]));
             }
 
-            for (int i = 0; i < listToSort.Count; i++)
+            for (int i = 0; i < sortedList.Count; i++)
             {
-                Console.Write(listToSort[i] + " ");
+                Console.Write(sortedList[i] + " ");
             }
             Console.WriteLine();
             Console.WriteLine($"Elapsed time: {elapsed}");

@@ -1,7 +1,7 @@
 ﻿//Binary Tree
 //                  A(0) Root
 //                 /    \
-//              B(1)    C(2) Leaf / Parent
+//              B(1)    C(2) Leaf / Parentz
 //             /   \        \
 //          D(43)    E(4)    F(6)    Left / Child
 
