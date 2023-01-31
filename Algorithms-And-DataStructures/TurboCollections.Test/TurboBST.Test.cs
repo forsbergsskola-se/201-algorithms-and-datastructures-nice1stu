@@ -69,7 +69,7 @@ namespace TurboCollections.Tests
 
             for (int i = 0; i < values.Length; i++)
             {
-                values[i] = random.Next(1, 11);
+                values[i] = random.Next(1, 101);
             }
 
             Console.WriteLine("Random values:");
@@ -90,6 +90,13 @@ namespace TurboCollections.Tests
             tree.Delete(lastValue);
 
             Assert.That(tree.Search(lastValue), Is.False, $"Value {lastValue} was found in the tree after deletion");
+            
+            Console.WriteLine("Remaining values:");
+            foreach (int value in values)
+            {
+                if (value == lastValue) continue;
+                Console.Write($"{value} ");
+            }
         }
     }
 }
