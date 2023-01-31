@@ -32,13 +32,14 @@ namespace TurboCollections
 
         public void Insert(int data)
         {
-            if (Root == null)
+            switch (Root)
             {
-                Root = new Node(data);
-            }
-            else
-            {
-                InsertNode(data, Root);
+                case null:
+                    Root = new Node(data);
+                    break;
+                default:
+                    InsertNode(data, Root);
+                    break;
             }
         }
 
@@ -46,24 +47,26 @@ namespace TurboCollections
         {
             if (data < node.Data)
             {
-                if (node.Left == null)
+                switch (node.Left)
                 {
-                    node.Left = new Node(data);
-                }
-                else
-                {
-                    InsertNode(data, node.Left);
+                    case null:
+                        node.Left = new Node(data);
+                        break;
+                    default:
+                        InsertNode(data, node.Left);
+                        break;
                 }
             }
             else
             {
-                if (node.Right == null)
+                switch (node.Right)
                 {
-                    node.Right = new Node(data);
-                }
-                else
-                {
-                    InsertNode(data, node.Right);
+                    case null:
+                        node.Right = new Node(data);
+                        break;
+                    default:
+                        InsertNode(data, node.Right);
+                        break;
                 }
             }
         }
