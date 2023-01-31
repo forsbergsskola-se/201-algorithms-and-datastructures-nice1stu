@@ -12,7 +12,7 @@ namespace TurboCollections.Tests
             tree.Insert(10);
 
 
-            Assert.IsTrue(tree.Search(10));
+            Assert.That(tree.Search(10), Is.True);
 
 
         }

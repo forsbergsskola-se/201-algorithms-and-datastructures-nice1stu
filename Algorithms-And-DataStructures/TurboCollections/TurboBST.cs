@@ -37,9 +37,12 @@ public class TurboBST
     
     Node? InsertRec(Node? root, int key)
     {
-        if (root != null && key < root.Key)
+        if (root == null)
+            return new Node(key);
+        
+        if (key < root.Key)
             root.Left = InsertRec(root.Left, key);
-        else if (root != null && key > root.Key)
+        else if (key > root.Key)
             root.Right = InsertRec(root.Right, key);
         
         return root;
