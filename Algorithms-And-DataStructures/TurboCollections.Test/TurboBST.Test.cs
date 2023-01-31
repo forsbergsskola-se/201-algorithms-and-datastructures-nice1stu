@@ -58,5 +58,38 @@ namespace TurboCollections.Tests
             Assert.That(tree.Search(60), Is.False);
             
         }
+        
+        [Test]
+        public void Insert_AddsRandomNodeToTree()
+        {
+            TurboBST tree = new TurboBST();
+
+            Random random = new Random();
+            int[] values = new int[100];
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                values[i] = random.Next(1, 11);
+            }
+
+            Console.WriteLine("Random values:");
+            foreach (int value in values)
+            {
+                Console.Write($"{value} ");
+                tree.Insert(value);
+            }
+
+            Console.WriteLine("");
+            foreach (int value in values)
+            {
+                Assert.That(tree.Search(value), Is.True, $"Value {value} was not found in the tree");
+            }
+
+            int lastValue = values[values.Length - 1];
+            Console.WriteLine("Deleting value: " + lastValue);
+            tree.Delete(lastValue);
+
+            Assert.That(tree.Search(lastValue), Is.False, $"Value {lastValue} was found in the tree after deletion");
+        }
     }
 }
