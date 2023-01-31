@@ -20,16 +20,35 @@ namespace TurboCollections.Tests
             Console.WriteLine($"Elapsed time: {elapsed}");
         }
         
-        /*[Test]
-        public void SelectionSortWorksForRandomUnorderedInput()
+        [Test]
+        public void QuickSortRandomizedList()
         {
-            var consecutiveData = Enumerable.Range(0, Random.Shared.Next(100, 200));
-                var randomData = consecutiveData.Select(_ => Random.Shared.Next(0, 100)).ToArray();
-                TurboLinkedList<int> list = new TurboLinkedList<int>();
-                list.AddRange(randomData);
+            Random random = new Random();
+            int[] randomlist = new int[random.Next(1, 1000)];
+            for (int i = 0; i < randomlist.Length; i++)
+            {
+                randomlist[i] = random.Next(1, 100);
+            }
 
-                Assert.That(list, Is.EquivalentTo(randomData));
-                Assert.That(list, Is.Ordered);
-        }*/
+            List<int> listToSort = new List<int>(randomlist);
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            List<int> sortedList = SortSelection.SelectionSort(listToSort);
+            stopwatch.Stop();
+            var elapsed = stopwatch.Elapsed;
+
+            // Verify that the list is sorted by comparing adjacent elements
+            for (int i = 1; i < sortedList.Count; i++)
+            {
+                Assert.That(sortedList[i-1], Is.LessThanOrEqualTo(sortedList[i]));
+            }
+
+            for (int i = 0; i < sortedList.Count; i++)
+            {
+                Console.Write(sortedList[i] + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Elapsed time: {elapsed}");
+        }
     }
 }
