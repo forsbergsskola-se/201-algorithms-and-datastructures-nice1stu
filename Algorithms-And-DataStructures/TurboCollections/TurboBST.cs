@@ -57,8 +57,8 @@ public class TurboBST
         Console.Write(root.Key + " ");
         InorderRec(root.Right);
     }
-    
-    void Delete(int key)
+
+    public void Delete(int key)
     {
         _root = DeleteRec(_root, key);
     }
