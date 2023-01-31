@@ -1,4 +1,4 @@
-﻿using TurboCollections;
+﻿namespace TurboCollections.Test;
 
 [TestFixture]
 public class BinaryTreeTests
