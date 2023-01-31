@@ -1,9 +1,20 @@
 ﻿using NUnit.Framework;
 
-namespace TurboCollections.Test;
-
-[TestFixture]
-public class TurboBST_Test
+namespace TurboCollections.Tests
 {
-    
+    [TestFixture]
+    public class TurboBstTests
+    {
+        [Test]
+        public void Insert_AddsNodeToTree()
+        {
+            TurboBST tree = new TurboBST();
+            tree.Insert(10);
+
+
+            Assert.IsTrue(tree.Search(10));
+
+
+        }
+    }
 }
