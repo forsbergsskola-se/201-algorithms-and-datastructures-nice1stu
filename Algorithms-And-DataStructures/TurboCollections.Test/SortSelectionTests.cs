@@ -32,6 +32,12 @@ public class SortSelectionTests
             }
 
             List<int> listToSort = new List<int>(randomlist);
+            Console.WriteLine("Unsorted List");
+            for (int i = 0; i < randomlist.Length; i++)
+            {
+                Console.Write(randomlist[i] + " ");
+            }
+            
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             List<int> sortedList = SortSelection.SelectionSort(listToSort);
@@ -43,6 +49,9 @@ public class SortSelectionTests
             {
                 Assert.That(sortedList[i-1], Is.LessThanOrEqualTo(sortedList[i]));
             }
+
+            Console.WriteLine("");
+            Console.WriteLine("Sorted List");
 
             for (int i = 0; i < sortedList.Count; i++)
             {

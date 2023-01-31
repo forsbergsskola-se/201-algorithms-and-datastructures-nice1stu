@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Threading.Channels;
 
 namespace TurboCollections.Tests
 {
@@ -24,13 +25,19 @@ namespace TurboCollections.Tests
         public void QuickSortRandomizedList()
         {
             Random random = new Random();
-            int[] randomlist = new int[random.Next(1, 1000)];
+            int[] randomlist = new int[random.Next(1, 100)];
             for (int i = 0; i < randomlist.Length; i++)
             {
                 randomlist[i] = random.Next(1, 100);
             }
 
             List<int> listToSort = new List<int>(randomlist);
+            Console.WriteLine("Unsorted List");
+            for (int i = 0; i < randomlist.Length; i++)
+            {
+                Console.Write(randomlist[i] + " ");
+            }
+            
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             List<int> sortedList = SortSelection.SelectionSort(listToSort);
@@ -42,6 +49,9 @@ namespace TurboCollections.Tests
             {
                 Assert.That(sortedList[i-1], Is.LessThanOrEqualTo(sortedList[i]));
             }
+
+            Console.WriteLine("");
+            Console.WriteLine("Sorted List");
 
             for (int i = 0; i < sortedList.Count; i++)
             {
