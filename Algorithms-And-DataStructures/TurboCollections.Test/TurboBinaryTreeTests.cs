@@ -63,4 +63,51 @@ public class BinaryTreeTests
         Assert.That(tree.Root.Right.Right.Right.Right.Data, Is.EqualTo(4));
         Assert.IsNull(tree.Root.Left);
     }
+    
+    /*[Test]
+    public void InsertionTest()
+    {
+        BinaryTree tree = new BinaryTree();
+        Random rnd = new Random();
+        int[] arr = new int[5];
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            arr[i] = rnd.Next(1, 100);
+            tree.Insert(arr[i]);
+        }
+
+        Array.Sort(arr);
+
+        Assert.That(tree.Root.Data, Is.EqualTo(arr[0]));
+
+        for (int i = 1; i < arr.Length; i++)
+        {
+            int nodeValue = arr[i];
+            bool found = FindNode(tree.Root, nodeValue);
+            Assert.IsTrue(found);
+        }
+    }
+
+    private bool FindNode(BinaryTree.Node node, int value)
+    {
+        if (node == null)
+        {
+            return false;
+        }
+
+        if (node.Data == value)
+        {
+            return true;
+        }
+
+        if (value < node.Data)
+        {
+            return FindNode(node.Left, value);
+        }
+        else
+        {
+            return FindNode(node.Right, value);
+        }
+    }*/
 }
