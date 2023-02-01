@@ -52,8 +52,8 @@ public class TurboBST
 
     public static void InorderRec(Node? root)
     {
-        InorderRec(root?.Left);
         if (root == null) return;
+        InorderRec(root.Left);
         Console.Write(root.Key + " ");
         InorderRec(root.Right);
     }
@@ -65,11 +65,7 @@ public class TurboBST
 
     Node? DeleteRec(Node? root, int key)
     {
-        switch (root)
-        {
-            case null:
-                return null;
-        }
+        if (root == null) return null;
 
         if (key >= root.Key)
         {
@@ -101,5 +97,36 @@ public class TurboBST
             root = root.Left;
         }
         return min;
+    }
+
+    public void PrintInOrder() //InOrder
+    {
+        InorderRec(_root);
+    }
+    
+    public static void PreorderRec(Node? root) //PreOrder
+    {
+        if (root == null) return;
+        Console.Write(root.Key + " ");
+        PreorderRec(root.Left);
+        PreorderRec(root.Right);
+    }
+    
+    public void PrintPreOrder() //InOrder
+    {
+        PreorderRec(_root);
+    }
+    
+    public static void PostorderRec(Node? root) //PreOrder
+    {
+        if (root == null) return;
+        PostorderRec(root.Left);
+        PostorderRec(root.Right);
+        Console.Write(root.Key + " ");
+    }
+    
+    public void PrintPostOrder() //InOrder
+    {
+        PostorderRec(_root);
     }
 }
