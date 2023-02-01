@@ -1,22 +1,20 @@
-﻿using NUnit.Framework;
-
-namespace TurboCollections.Test;
+﻿namespace TurboCollections.Test;
 
 [TestFixture]
-public class TurboBSTIComparable_Tests
+public class TurboBstiComparableTests
 {
     [Test]
 
     public void SearchWhenValueisPresentReturnTrue()
     {
-        var tree = new TurboBSTIComparable<int>();
+        var tree = new TurboBstiComparable<int>();
 
-        tree._root = new TurboBSTIComparable<int>.Node(5);
-        tree._root.Left = new TurboBSTIComparable<int>.Node(3);
-        tree._root.Right = new TurboBSTIComparable<int>.Node(7);
-        tree._root.Left.Left = new TurboBSTIComparable<int>.Node(2);
-        tree._root.Left.Right = new TurboBSTIComparable<int>.Node(4);
-        tree._root.Right.Right = new TurboBSTIComparable<int>.Node(9);
+        tree.Root = new TurboBstiComparable<int>.Node(5);
+        tree.Root.Left = new TurboBstiComparable<int>.Node(3);
+        tree.Root.Right = new TurboBstiComparable<int>.Node(7);
+        tree.Root.Left.Left = new TurboBstiComparable<int>.Node(2);
+        tree.Root.Left.Right = new TurboBstiComparable<int>.Node(4);
+        tree.Root.Right.Right = new TurboBstiComparable<int>.Node(9);
 
         for (int i = 1; i <= 9; i++)
         {
@@ -30,11 +28,11 @@ public class TurboBSTIComparable_Tests
 
     public void SearchWhenValueisNotPresentReturnFalse()
     {
-        var tree = new TurboBSTIComparable<int>();
+        var tree = new TurboBstiComparable<int>();
 
-        tree._root = new TurboBSTIComparable<int>.Node(5);
-        tree._root.Left = new TurboBSTIComparable<int>.Node(3);
-        tree._root.Right = new TurboBSTIComparable<int>.Node(7);
+        tree.Root = new TurboBstiComparable<int>.Node(5);
+        tree.Root.Left = new TurboBstiComparable<int>.Node(3);
+        tree.Root.Right = new TurboBstiComparable<int>.Node(7);
 
         for (int i = 1; i <= 9; i++)
         {
@@ -47,7 +45,7 @@ public class TurboBSTIComparable_Tests
     [Test]
     public void InsertMethodShouldInsertValueIntoTheTree()
     {
-        var tree = new TurboBSTIComparable<int>();
+        var tree = new TurboBstiComparable<int>();
 
         tree.Insert(5);
         tree.Insert(3);
@@ -67,14 +65,14 @@ public class TurboBSTIComparable_Tests
     [Test]
     public void RemoveMethodRemovesNodeWithGivenValue()
     {
-        var tree = new TurboBSTIComparable<int>();
+        var tree = new TurboBstiComparable<int>();
 
-        tree._root = new TurboBSTIComparable<int>.Node(5);
-        tree._root.Left = new TurboBSTIComparable<int>.Node(3);
-        tree._root.Right = new TurboBSTIComparable<int>.Node(7);
-        tree._root.Left.Left = new TurboBSTIComparable<int>.Node(2);
-        tree._root.Left.Right = new TurboBSTIComparable<int>.Node(4);
-        tree._root.Right.Right = new TurboBSTIComparable<int>.Node(9);
+        tree.Root = new TurboBstiComparable<int>.Node(5);
+        tree.Root.Left = new TurboBstiComparable<int>.Node(3);
+        tree.Root.Right = new TurboBstiComparable<int>.Node(7);
+        tree.Root.Left.Left = new TurboBstiComparable<int>.Node(2);
+        tree.Root.Left.Right = new TurboBstiComparable<int>.Node(4);
+        tree.Root.Right.Right = new TurboBstiComparable<int>.Node(9);
 
         tree.Remove(3);
         for (int i = 1; i <= 9; i++)
@@ -88,7 +86,7 @@ public class TurboBSTIComparable_Tests
     [Test]
     public void GetEnumeratorReturnInOrderTraversal()
     {
-        var tree = new TurboBSTIComparable<int>();
+        var tree = new TurboBstiComparable<int>();
         tree.Insert(3);
         tree.Insert(1);
         tree.Insert(4);
@@ -98,7 +96,7 @@ public class TurboBSTIComparable_Tests
         tree.Insert(6);
         tree.Insert(7);
 
-        var expected = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+        var expected = new[] { 1, 2, 3, 4, 5, 6, 7 };
         var actual = tree.ToArray();
 
         CollectionAssert.AreEqual(expected, actual);
@@ -107,7 +105,7 @@ public class TurboBSTIComparable_Tests
     [Test]
     public void GetEnumeratorReturnReverseOrderTraversal()
     {
-        var tree = new TurboBSTIComparable<int>();
+        var tree = new TurboBstiComparable<int>();
         tree.Insert(3);
         tree.Insert(1);
         tree.Insert(4);
@@ -117,7 +115,7 @@ public class TurboBSTIComparable_Tests
         tree.Insert(6);
         tree.Insert(7);
 
-        var expected = new int[] { 7, 6, 5, 4, 3, 2, 1 };
+        var expected = new[] { 7, 6, 5, 4, 3, 2, 1 };
         var actual = tree.ToArray();
 
         CollectionAssert.AreEqual(expected, actual);

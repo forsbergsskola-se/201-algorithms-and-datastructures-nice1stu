@@ -1,6 +1,6 @@
 ﻿namespace TurboCollections;
 
-public class TurboBSTIComparable<T> where T:IComparable<T>
+public class TurboBstiComparable<T> where T:IComparable<T>
 {
     public class Node
     {
@@ -15,16 +15,16 @@ public class TurboBSTIComparable<T> where T:IComparable<T>
         }
     }
 
-    public Node? _root;
+    public Node? Root;
 
-    public TurboBSTIComparable()
+    public TurboBstiComparable()
     {
-        _root = null;
+        Root = null;
     }
 
     public bool Search(T value)
     {
-        return SearchRec(_root, value);
+        return SearchRec(Root, value);
     }
 
     private bool SearchRec(Node? root, T value)
@@ -38,7 +38,7 @@ public class TurboBSTIComparable<T> where T:IComparable<T>
     
     public void Insert(T value)
     {
-        _root = InsertRec(_root, value);
+        Root = InsertRec(Root, value);
     }
 
     private Node InsertRec(Node? root, T value)
@@ -63,7 +63,7 @@ public class TurboBSTIComparable<T> where T:IComparable<T>
 
     public void Remove(T value)
     {
-        _root = RemoveRec(_root, value);
+        Root = RemoveRec(Root, value);
     }
 
     private Node? RemoveRec(Node? root, T value)
@@ -108,61 +108,59 @@ public class TurboBSTIComparable<T> where T:IComparable<T>
         return minValue;
     }
 
-    public System.Collections.Generic.IEnumerator<T> GetInOrderEnumerator()
+    public IEnumerator<T> GetInOrderEnumerator()
     {
         return InOrderTraversal().GetEnumerator();
     }
 
     private IEnumerable<T> InOrderTraversal()
     {
-        if (_root == null)
+        if (Root != null)
         {
-            yield break;
-        }
+            Stack<Node?> stack = new Stack<Node?>();
+            Node? current = Root;
 
-        Stack<Node> stack = new Stack<Node>();
-        Node current = _root;
-
-        while (stack.Count > 0 || current != null)
-        {
-            while (current != null)
+            while (stack.Count > 0 || current != null)
             {
-                stack.Push(current);
-                current = current.Left;
-            }
+                while (current != null)
+                {
+                    stack.Push(current);
+                    current = current.Left;
+                }
 
-            current = stack.Pop();
-            yield return current.Key;
-            current = current.Right;
+                current = stack.Pop();
+                if (current == null) continue;
+                yield return current.Key;
+                current = current.Right;
+            }
         }
     }
     
-    public System.Collections.Generic.IEnumerator<T> GetEnumerator()
+    public IEnumerator<T> GetEnumerator()
     {
         return ReverseOrderTraversal().GetEnumerator();
     }
 
     private IEnumerable<T> ReverseOrderTraversal()
     {
-        if (_root == null)
+        if (Root != null)
         {
-            yield break;
-        }
+            Stack<Node?> stack = new Stack<Node?>();
+            Node? current = Root;
 
-        Stack<Node> stack = new Stack<Node>();
-        Node current = _root;
-
-        while (stack.Count > 0 || current != null)
-        {
-            while (current != null)
+            while (stack.Count > 0 || current != null)
             {
-                stack.Push(current);
-                current = current.Right;
-            }
+                while (current != null)
+                {
+                    stack.Push(current);
+                    current = current.Right;
+                }
 
-            current = stack.Pop();
-            yield return current.Key;
-            current = current.Left;
+                current = stack.Pop();
+                if (current == null) continue;
+                yield return current.Key;
+                current = current.Left;
+            }
         }
     }
     

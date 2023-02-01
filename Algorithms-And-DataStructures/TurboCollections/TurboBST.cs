@@ -1,6 +1,6 @@
 ﻿namespace TurboCollections;
 
-public class TurboBST 
+public class TurboBst 
 {
     public class Node
     {
@@ -17,7 +17,7 @@ public class TurboBST
 
     private Node? _root;
 
-    public TurboBST() { _root = null; }
+    public TurboBst() { _root = null; }
     
     public bool Search(int value)
     {
@@ -35,7 +35,7 @@ public class TurboBST
 
     public void Insert(int key) { _root = InsertRec(_root, key); }
     
-    Node? InsertRec(Node? root, int key)
+    Node InsertRec(Node? root, int key)
     {
         if (root == null)
             return new Node(key);

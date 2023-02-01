@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-
-namespace TurboCollections.Tests;
+﻿namespace TurboCollections.Test;
 
 [TestFixture]
 public class TurboBstTests
@@ -8,7 +6,7 @@ public class TurboBstTests
     [Test]
     public void Insert_AddsNodeToTree()
     {
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
         tree.Insert(10);
         tree.Insert(20);
         tree.Insert(30);
@@ -26,7 +24,7 @@ public class TurboBstTests
     [Test]
     public void Delete_RemovesNodeFromTree()
     {
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
         tree.Insert(10);
         tree.Insert(20);
         tree.Insert(30);
@@ -45,7 +43,7 @@ public class TurboBstTests
     [Test]
     public void Search_ReturnsTrueForExistingNode()
     {
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
         tree.Insert(10);
         tree.Insert(20);
         tree.Insert(30);
@@ -62,7 +60,7 @@ public class TurboBstTests
     [Test]
     public void Insert_AddsRandomNodeToTree()
     {
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
 
         Random random = new Random();
         int[] values = new int[100];
@@ -103,7 +101,7 @@ public class TurboBstTests
     public void PrintInOrder_WithElements_PrintsElementsInAscendingOrder()
     {
         // Arrange
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
         tree.Insert(100);
         tree.Insert(20);
         tree.Insert(200);
@@ -119,7 +117,7 @@ public class TurboBstTests
     public void PrintPreOrder_WithElements_PrintsElementsInAscendingOrder()
     {
         // Arrange
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
         tree.Insert(100);
         tree.Insert(20);
         tree.Insert(200);
@@ -135,7 +133,7 @@ public class TurboBstTests
     public void PrintPostOrder_WithElements_PrintsElementsInAscendingOrder()
     {
         // Arrange
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
         tree.Insert(100);
         tree.Insert(20);
         tree.Insert(200);
@@ -151,7 +149,7 @@ public class TurboBstTests
     public void PrintReverseOrder_WithElements_PrintsElementsInAscendingOrder()
     {
         // Arrange
-        TurboBST tree = new TurboBST();
+        TurboBst tree = new TurboBst();
         tree.Insert(100);
         tree.Insert(20);
         tree.Insert(200);

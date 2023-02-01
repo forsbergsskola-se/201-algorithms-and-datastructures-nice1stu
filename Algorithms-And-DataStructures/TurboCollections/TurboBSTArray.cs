@@ -1,6 +1,6 @@
 ﻿namespace TurboCollections;
 
-public class TurboBSTArray
+public class TurboBstArray
 {
     /*public int[] _tree;
     public int _size;

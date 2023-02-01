@@ -1,9 +1,7 @@
-﻿using NUnit.Framework;
-
-namespace TurboCollections.Test;
+﻿namespace TurboCollections.Test;
 
 [TestFixture]
-public class TurboBSTArrayTest
+public class TurboBstArrayTest
 {/*
     public class TurboBSTArrayTests
     {
