@@ -130,12 +130,12 @@ public class TurboBST
         PostorderRec(_root);
     }
     
-    public static void ReverseorderRec(Node? root) //PreOrder
+    public static void ReverseorderRec(Node? root) //ReverseOrder NOT WORKING
     {
         if (root == null) return;
-        InorderRec(root.Right);
+        ReverseorderRec(root.Right);
         Console.Write(root.Key + " ");
-        InorderRec(root.Left);
+        ReverseorderRec(root.Left);
     }
     
     public void PrintReverseOrder() //InOrder
