@@ -108,4 +108,72 @@ public class TurboBSTIComparable<T> where T:IComparable<T>
         return minValue;
     }
 
+    public System.Collections.Generic.IEnumerator<T> GetInOrderEnumerator()
+    {
+        return InOrderTraversal().GetEnumerator();
+    }
+
+    private IEnumerable<T> InOrderTraversal()
+    {
+        if (_root == null)
+        {
+            yield break;
+        }
+
+        Stack<Node> stack = new Stack<Node>();
+        Node current = _root;
+
+        while (stack.Count > 0 || current != null)
+        {
+            while (current != null)
+            {
+                stack.Push(current);
+                current = current.Left;
+            }
+
+            current = stack.Pop();
+            yield return current.Key;
+            current = current.Right;
+        }
+    }
+    
+    public System.Collections.Generic.IEnumerator<T> GetEnumerator()
+    {
+        return ReverseOrderTraversal().GetEnumerator();
+    }
+
+    private IEnumerable<T> ReverseOrderTraversal()
+    {
+        if (_root == null)
+        {
+            yield break;
+        }
+
+        Stack<Node> stack = new Stack<Node>();
+        Node current = _root;
+
+        while (stack.Count > 0 || current != null)
+        {
+            while (current != null)
+            {
+                stack.Push(current);
+                current = current.Right;
+            }
+
+            current = stack.Pop();
+            yield return current.Key;
+            current = current.Left;
+        }
+    }
+    
+    public T[] ToArray()
+    {
+        var list = new List<T>();
+        foreach (var item in this)
+        {
+            list.Add(item);
+        }
+        return list.ToArray();
+    }
+
 }

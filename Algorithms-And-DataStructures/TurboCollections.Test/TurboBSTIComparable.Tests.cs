@@ -85,4 +85,41 @@ public class TurboBSTIComparable_Tests
         }
     }
 
+    [Test]
+    public void GetEnumeratorReturnInOrderTraversal()
+    {
+        var tree = new TurboBSTIComparable<int>();
+        tree.Insert(3);
+        tree.Insert(1);
+        tree.Insert(4);
+        tree.Insert(2);
+        tree.Insert(3);
+        tree.Insert(5);
+        tree.Insert(6);
+        tree.Insert(7);
+
+        var expected = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+        var actual = tree.ToArray();
+
+        CollectionAssert.AreEqual(expected, actual);
+    }
+
+    [Test]
+    public void GetEnumeratorReturnReverseOrderTraversal()
+    {
+        var tree = new TurboBSTIComparable<int>();
+        tree.Insert(3);
+        tree.Insert(1);
+        tree.Insert(4);
+        tree.Insert(2);
+        tree.Insert(3);
+        tree.Insert(5);
+        tree.Insert(6);
+        tree.Insert(7);
+
+        var expected = new int[] { 7, 6, 5, 4, 3, 2, 1 };
+        var actual = tree.ToArray();
+
+        CollectionAssert.AreEqual(expected, actual);
+    }
 }
