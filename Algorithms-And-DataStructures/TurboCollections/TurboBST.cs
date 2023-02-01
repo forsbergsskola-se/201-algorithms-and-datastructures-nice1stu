@@ -129,4 +129,17 @@ public class TurboBST
     {
         PostorderRec(_root);
     }
+    
+    public static void ReverseorderRec(Node? root) //PreOrder
+    {
+        if (root == null) return;
+        InorderRec(root.Right);
+        Console.Write(root.Key + " ");
+        InorderRec(root.Left);
+    }
+    
+    public void PrintReverseOrder() //InOrder
+    {
+        ReverseorderRec(_root);
+    }
 }

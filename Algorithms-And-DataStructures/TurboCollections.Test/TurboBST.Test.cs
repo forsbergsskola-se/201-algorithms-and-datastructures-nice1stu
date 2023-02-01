@@ -34,7 +34,7 @@ public class TurboBstTests
         tree.Insert(50);
 
         tree.Delete(20);
-
+        
         Assert.That(tree.Search(10), Is.True);
         Assert.That(tree.Search(20), Is.False);
         Assert.That(tree.Search(30), Is.True);
@@ -145,5 +145,21 @@ public class TurboBstTests
         tree.Insert(300);
         
         tree.PrintPostOrder();
+    }
+    
+    [Test]
+    public void PrintReverseOrder_WithElements_PrintsElementsInAscendingOrder()
+    {
+        // Arrange
+        TurboBST tree = new TurboBST();
+        tree.Insert(100);
+        tree.Insert(20);
+        tree.Insert(200);
+        tree.Insert(10);
+        tree.Insert(30);
+        tree.Insert(150);
+        tree.Insert(300);
+        
+        tree.PrintReverseOrder();
     }
 }
