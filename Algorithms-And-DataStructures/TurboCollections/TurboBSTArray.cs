@@ -2,11 +2,11 @@
 
 public class TurboBstArray
 {
-    /*public int[] _tree;
+    public int[] _tree;
     public int _size;
     private const int MaxSize = 10;
 
-    public TurboBSTArray()
+    public void TurboBSTArray()
     {
         _tree = new int[MaxSize];
         _size = 0;
@@ -74,5 +74,5 @@ public class TurboBstArray
 
         _tree[index] = _tree[_size - 1];
         _size--;
-    }*/
+    }
 }
