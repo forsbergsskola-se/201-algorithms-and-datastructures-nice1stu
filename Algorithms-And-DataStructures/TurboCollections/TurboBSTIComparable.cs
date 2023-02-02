@@ -135,7 +135,7 @@ public class TurboBstiComparable<T> where T:IComparable<T>
             }
         }
     }
-    
+
     public IEnumerator<T> GetEnumerator()
     {
         return ReverseOrderTraversal().GetEnumerator();
@@ -173,5 +173,4 @@ public class TurboBstiComparable<T> where T:IComparable<T>
         }
         return list.ToArray();
     }
-
 }

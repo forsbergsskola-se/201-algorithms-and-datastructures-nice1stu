@@ -84,7 +84,7 @@ public class TurboBstiComparableTests
     }
 
     [Test]
-    public void GetEnumeratorReturnInOrderTraversal()
+    public void GetInOrderEnumerator_ReturnsInOrderElements()
     {
         var tree = new TurboBstiComparable<int>();
         tree.Insert(3);
@@ -96,11 +96,17 @@ public class TurboBstiComparableTests
         tree.Insert(6);
         tree.Insert(7);
 
-        var expected = new[] { 1, 2, 3, 4, 5, 6, 7 };
-        var actual = tree.ToArray();
+        var inOrder = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
+        var enumerator = tree.GetInOrderEnumerator();
 
-        CollectionAssert.AreEqual(expected, actual);
+        int i = 0;
+        while (enumerator.MoveNext())
+        {
+            Assert.That(enumerator.Current, Is.EqualTo(inOrder[i]));
+            i++;
+        }
     }
+
 
     [Test]
     public void GetEnumeratorReturnReverseOrderTraversal()
