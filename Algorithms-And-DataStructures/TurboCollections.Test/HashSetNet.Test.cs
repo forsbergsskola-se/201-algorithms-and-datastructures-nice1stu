@@ -8,25 +8,37 @@ namespace HashSetTests
     public class HashSetTests
     {
         [Test]
-        public void TestAddMethod()
+        public void TestAddMethodOneElement()
         {
             HashSet<int> hashSet = new HashSet<int>();
 
             // Test adding an element to the HashSet
-            hashSet.Add(1);
-            Assert.That(hashSet.Contains(1), Is.True);
-
-            // Test adding multiple elements to the HashSet
-            hashSet.Add(2);
-            hashSet.Add(3);
-            Assert.That(hashSet.Contains(2), Is.True);
-            Assert.That(hashSet.Contains(3), Is.True);
-
-            // Test adding an element that already exists in the HashSet
-            hashSet.Add(3);
-            Assert.That(hashSet.Count, Is.EqualTo(3));
+            hashSet.Add(69);
+            Assert.That(hashSet.Contains(69), Is.True);
         }
 
+        [Test]
+        public void TestAddMethodMultipleElement()
+        {
+            HashSet<int> hashSet = new HashSet<int>();
+            
+            hashSet.Add(1);
+            hashSet.Add(13);
+            Assert.That(hashSet.Contains(1), Is.True);
+            Assert.That(hashSet.Contains(13), Is.True);
+        }
+        
+        [Test]
+        public void TestAddMethodExistingElement()
+        {
+            HashSet<int> hashSet = new HashSet<int>();
+            
+            hashSet.Add(1);
+            hashSet.Add(13);
+            hashSet.Add(13);
+            Assert.That(hashSet.Count, Is.EqualTo(2));
+        }
+        
         [Test]
         public void TestRemoveMethod()
         {
