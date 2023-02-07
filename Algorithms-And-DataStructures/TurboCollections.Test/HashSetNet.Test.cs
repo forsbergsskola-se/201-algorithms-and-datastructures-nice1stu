@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-
-namespace HashSetTests
+﻿namespace HashSetTests
 {
     [TestFixture]
     public class HashSetTests
@@ -11,8 +7,7 @@ namespace HashSetTests
         public void TestAddMethodOneElement()
         {
             HashSet<int> hashSet = new HashSet<int>();
-
-            // Test adding an element to the HashSet
+            
             hashSet.Add(69);
             Assert.That(hashSet.Contains(69), Is.True);
         }
@@ -46,13 +41,11 @@ namespace HashSetTests
             hashSet.Add(1);
             hashSet.Add(2);
             hashSet.Add(3);
-
-            // Test removing an element that exists in the HashSet
+            
             hashSet.Remove(2);
             Assert.That(hashSet.Contains(2), Is.False);
             Assert.That(hashSet.Count, Is.EqualTo(2));
-
-            // Test removing an element that does not exist in the HashSet
+            
             hashSet.Remove(4);
             Assert.That(hashSet.Count, Is.EqualTo(2));
         }
@@ -61,11 +54,9 @@ namespace HashSetTests
         public void TestCountProperty()
         {
             HashSet<int> hashSet = new HashSet<int>();
-
-            // Test counting elements in an empty HashSet
+            
             Assert.That(hashSet.Count, Is.EqualTo(0));
-
-            // Test counting elements in a non-empty HashSet
+            
             hashSet.Add(1);
             hashSet.Add(2);
             hashSet.Add(3);
@@ -79,8 +70,7 @@ namespace HashSetTests
             hashSet.Add(1);
             hashSet.Add(2);
             hashSet.Add(3);
-
-            // Test clearing elements in the HashSet
+            
             hashSet.Clear();
             Assert.That(hashSet.Count, Is.EqualTo(0));
         }
