@@ -4,7 +4,7 @@ The goal is to use a pathfinding algorithm that finds the optimal path to begin 
 In the case of this assignment, the at start of the game a randomly generated number of enemy targets (set in inspector) instantiated onto the game map which is a grid of size (set in inspector from - to +). Although set in 3D world, for the purposes of this assignment, only the x and z axis are considered vairable. Y is locked at on for all object except gunship which is above the ground locked at y:2.
 The point of origin (player) is preset at the bottom of the map.
 
-![Gunship01](https://user-images.githubusercontent.com/112468923/221442219-14fe3f7c-df04-4a9e-947d-cb93040d2e52.png)
+![Gunship03](https://user-images.githubusercontent.com/112468923/222990247-619c6708-1fb0-4788-91a6-1f95ff7d4025.png)
 
 There is a complexity to this problem that need to be considered when choosing how to solve this.
 Because the player can choose to visit any given target and from each target visit any other target, the possible permutations become astronomical very quickly and overwhelm the computational abilities of current computers.
@@ -31,5 +31,13 @@ Then tried to use one of the algorithms in class, like A* or Dijkstra but could 
 Ran out of time to implement other elements i wanted like restricting the range, and so on.
 
 The program does have the ability to randomly generate any size map and any number of targets making it scaleable and different each iteration.
+
+With a little extra time managed to upgrade the project a little more. Added more realitic scenery, but also mountain obstacles as added challenge to pathing. Decided rather than having static targets, added a* pathfinding algorithm to the enemy tanks, so that they randomly spawned then found path to the player base to attack. Each path is represented by the black lines in the secene of the game, with the black boxes as nodes. This works well and the enemy tanks avoid obstacles and attack the player base.
+
+![Gunship04](https://user-images.githubusercontent.com/112468923/222990445-229e129a-246c-4a25-a4ac-93e6c9bdaad6.png)
+
+However this of course presented new challenges since the original pathfinding project which was predicated on stationary targets mapped out optimal path at game start but did not change as the enemy tanks moved. Tried to implement a constant update to the path but realised that would take a lot of performance. Decided to try to change the game into a turn based game so that the algorithm would only be called once per player turn, but the complexity (for me) to change the entire game in the time I had available meant ultimately I did not succceed.
+
+As it stands the game starts with instantiating the base tower and sapwning of random number of enemy tanks (1 - 10) The Nearest Neighbour algorithm generates the optimal path to traverse all enemy tanks, at the same time the enemy tanks using A* create the shortest path, avoiding obstacles, to attack player base. Unfortunately not having been able to successfully implement an updateable path for the player means right now the player traverses the first created at game start. Maybe will revisit this and fix it time permitting at a later stage. (and maybe attempt again the Brute Force group method to find optimal path just to see if it is feasible)
 
 GitHub Link; https://github.com/forsbergsskola-se/AlgorithmsDataStructuresFinalAssignment/tree/main/My%20project
