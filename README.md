@@ -15,7 +15,7 @@ Brute force solving of this is out of the question as with 10 targets, at 1 mill
 
 ![Gunship 03](https://user-images.githubusercontent.com/112468923/221442282-94e177d9-c0f3-479a-bc44-67d5031270b3.png)
 
-I thought to bypass this by grouping the targets. If the targets are grouped in such a way that it it unlikely that the targets in 1 group will have the optimal path to the targets of another gorup, then we can divide the total number of targets into groups, brute force the optimal path to each group, then within each group brute force a solution for the optimal path to each target, thereby finding the optimal path to all targets. Not 100% accurate, but a serviceable solution.
+I thought to bypass this by grouping the targets. If the targets are grouped in such a way that it it unlikely that the targets in 1 group will have the optimal path to the targets of another group, then we can divide the total number of targets into groups, brute force the optimal path to each group, then within each group brute force a solution for the optimal path to each target, thereby finding the optimal path to all targets. Not 100% accurate, but a serviceable solution.
 Unfortunately I was not able to figure out how to do this successfully.
 
 ![Gunship02](https://user-images.githubusercontent.com/112468923/221442277-df1281ea-8e43-4640-bc8f-18467fe24739.png)
