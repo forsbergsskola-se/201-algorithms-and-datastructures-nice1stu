@@ -40,4 +40,4 @@ However this of course presented new challenges since the original pathfinding p
 
 As it stands the game starts with instantiating the base tower and sapwning of random number of enemy tanks (1 - 10) The Nearest Neighbour algorithm generates the optimal path to traverse all enemy tanks, at the same time the enemy tanks using A* create the shortest path, avoiding obstacles, to attack player base. Unfortunately not having been able to successfully implement an updateable path for the player means right now the player traverses the first created at game start. Maybe will revisit this and fix it time permitting at a later stage. (and maybe attempt again the Brute Force group method to find optimal path just to see if it is feasible)
 
-GitHub Link; https://github.com/forsbergsskola-se/201-algorithms-and-datastructures-nice1stu/tree/main/Algorithms-And-DataStructures/My%20Project%20Gunship
+GitHub Link; https://github.com/forsbergsskola-se/201-algorithms-and-datastructures-nice1stu/tree/main/Algorithms-And-DataStructures/RoombaCopter
