@@ -6,7 +6,8 @@ public class TurboLinkedList<T> : IEnumerable<T> // ICollection
 {
     // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
     
-    private class Node {
+    private class Node
+    {
         public T Value;
         public Node? Next;
 
