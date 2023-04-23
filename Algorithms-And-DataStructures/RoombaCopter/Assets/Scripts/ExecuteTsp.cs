@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ExecuteTsp : MonoBehaviour
 {
-    private EnemyGenerator worldGenerator;
+    private EnemyGenerator enemyGenerator;
     private List<Vector3> enemies;
     private List<int> path;
     private int[,] distances;
@@ -11,13 +11,13 @@ public class ExecuteTsp : MonoBehaviour
 
     private void Awake()
     {
-        worldGenerator = GetComponent<EnemyGenerator>();
+        enemyGenerator = GetComponent<EnemyGenerator>();
     }
 
     private void Start()
     {
-        enemies = worldGenerator.GetEnemies();
-        startPoint = worldGenerator.GetStartPoint();
+        enemies = enemyGenerator.GetEnemies();
+        startPoint = enemyGenerator.GetStartPoint();
         
         if (!enemies.Contains(startPoint)) enemies.Add(startPoint);
 
