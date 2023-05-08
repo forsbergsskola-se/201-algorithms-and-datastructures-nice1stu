@@ -42,4 +42,4 @@ As it stands the game starts with instantiating the base tower and sapwning of r
 
 GitHub Link; https://github.com/forsbergsskola-se/201-algorithms-and-datastructures-nice1stu/tree/main/Algorithms-And-DataStructures/RoombaCopter
 
-https://www.youtube.com/watch?v=mJfICnitfDE
+[![Click to watch my video](https://img.youtube.com/vi/mJfICnitfDE/0.jpg)](https://www.youtube.com/watch?v=mJfICnitfDE)  
