@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Game : MonoBehaviour
 {
-    [FormerlySerializedAs("start")] [SerializeField] private State state;
+    [SerializeField] private State state;
     public State goal;
     public event Action<State> StateChanged;
 
